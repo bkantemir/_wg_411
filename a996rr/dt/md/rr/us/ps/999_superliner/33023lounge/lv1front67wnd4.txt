@@ -1,0 +1,41 @@
+
+		<group>//first floor inside
+			<vs=box-tank whl='18,14,52' extX=-1 extD=-5 sectR=1/>
+			<mt_use=inside-walls/>
+			<a='front,bottom all' side=in />
+			<a='front noMrow' mt_use=gunmetal/>
+		</group py=2>//first floor inside
+
+		<group>//underneath front skirt (long)
+			<box='18,5,67'/>
+			<a='left,right' mt_use=body uTex2nm_use=nm1x4rib xywh2nm_GL='0.5,0,0,5'/>
+			<group>//front lip
+				<box='18,5,0.1' sectY=5/>
+				<a='left,right' mt_use=body />//uColor=#ff0000/>
+				<do pz=2 applyTo='top sin' fromZ=0/>
+			</group align=back pz=33.5>//front lip
+			<do sizeD='-2,0,0' applyTo=bottom/>
+			<do='calc normals'/>
+		</group align='top'>//underneath front skirt
+
+		
+		<mt_use=body/>
+		<box='0,9,67'/>
+		<group>//long right wall
+			<a=right side=',inside-walls' h=1 align='bottom' py=8 uTex2nm_use=rivets4  xywh2nm_GL='0,0,50,0.5'/>
+			<a=right side=',inside-walls' h=1 align='bottom' py=7 uTex2nm_use=nm1x4rib xywh2nm_GL='0,0,1,3'/>
+			<a=right side=',inside-walls' h=1 align='bottom' />
+			
+			<group>//windows row
+				<vs_adjust h=6/>
+				<a=right mt_use=windows h=7 l=55 px=-0.1  align=front pz=-10/>
+				<a=right side=',inside-walls' l=13 align=front pz=0 />
+				<include=frame11ext2.txt pz=-19/>
+				<include=frame11ext2.txt pz=-32/>
+				<include=frame11ext2.txt pz=-45/>
+				<include=frame11.txt pz=-58/>				
+				<a=right side=',inside-walls' l=3 align=back pz=-67 />//uColor=#ff0000/>
+			</group py=4 pz=33.5>//windows row
+			
+		</group px=9 >//long right wall
+		<clone=reflectX asis/>

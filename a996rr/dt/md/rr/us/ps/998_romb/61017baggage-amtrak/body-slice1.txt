@@ -1,0 +1,29 @@
+    <group mark='right wall'/>
+		<group>//lower part
+			<mt_use=body-ribs/>
+			<box='18,5,1'/>
+			<a='left,right' xywh2nm_GL='0,0,1,5' uColor=#eee0ee/>
+			<do scaleTo='20,x,x' applyTo=top/>
+		</group align=top>//lower part		
+		<group>//upper part
+			<mt_use=body/>
+			<box='18,12,1'/>
+			<a='left,right'/>
+			<do scaleTo='20,x,x' applyTo=bottom/>
+		</group align=bottom>//upper part
+		<do align=bottom/>
+		<do='calc normals'/>
+	</group>
+			
+	<group>	//mid rib
+				<mt_use=body 4wire lineWidth=0.25 noShadow >//uColor=#ff0000>
+					<line>
+						<p pxyz='-0.5,11,0'/>
+						<p dx=1/>
+					</line>
+					<line2mesh all markedAs="right wall" onThe="right" detachBy=0.1 />
+				</mt_use>
+	</group>	//mid rib
+	<clone=reflectX/>
+				
+	

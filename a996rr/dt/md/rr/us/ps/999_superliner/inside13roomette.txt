@@ -1,0 +1,20 @@
+
+<mt_use=inside/>
+<group> //roomette
+	<group>//left side
+		<box='6,8,4'/>
+		<a='front' side=in/>
+		<a='left' side=',inside-walls'/>
+		<do  align='bottom front'/>
+		<group>//coach
+			<box='6,2,3'/>
+			<a='top,back' />//uColor=#0000ff/>
+		</group align='bottom front' py=1>//coach
+	</group pz=6.5>//left side
+	<clone=reflectZ asis/>
+	<group>//table
+		<box='2,0,3'/>
+		<a='top' />//uColor=#ff0000/>
+	</group align=right pxyz='3,4,0'>//table
+</group align=right px=8 py=0> //roomette
+<clone=reflectX asis/>

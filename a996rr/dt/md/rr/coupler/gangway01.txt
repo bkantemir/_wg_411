@@ -1,0 +1,20 @@
+
+<mt_use=matte uColor=#222222/>
+<group>
+	<group>//top
+		<vs=box-tank whl='8,1,3' extX=-1 extU=-1/>
+		<a='front,left h,right h,top all'/>
+	</group align=bottom py=14>//top
+	<group>//bottom
+		<vs=box-tank whl='8,1,3' extX=-1 extD=-1/>
+		<a='front,left h,right h,top all'/>
+	</group align=bottom >//bottom
+	<group>//right vert
+		<box='1,13,3' />
+		<a='front,left,right'/>
+	</group align=bottom py=1 px=3.5>//right vert
+	<clone=reflectX/>
+	<do='calc normals'/>
+</group align='bottom back'>
+
+<include='gangway-rib.txt' pz=3.2/>

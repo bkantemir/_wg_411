@@ -1,0 +1,78 @@
+<include='/dt/mt/materials.txt'/>
+
+<texture_as=bogie2nm src='bogie01nm.bmp' ckey=#00ff00/>
+<mt_save_as=bogie mt_use=teflon uColor=#444444/>
+<mt_save_as=bogie-lid mt_use=bogie />//uColor=#0000ff/>
+<mt_save_as=bogie-spring mt_use=bogie />
+
+<texture_as=spring01nm src='/dt/md/parts/grill/nm1x2spring.bmp' glRepeat=GL_REPEAT />
+
+<mt_use=bogie/>
+<group> //entire bogie
+	<group>//right side
+		<box='20,5,0'/>
+		<a=front side=',black-nm' nm=bogie2nm xywh2nm='0,0,64,16'/>// py=0.5/>
+		
+		<group> //thickness
+			<line mt_use=bogie 4wire lineWidth=0.5 >
+			//<line mt_type=flat lineWidth=1 lineWidthFixed=1 uColor=#ff0000 >//
+				<group>//left side
+					<p pxyz='-9.4,-0.5,0' />
+					<p dy=0.5 dx=-0.5 r=0.1/>
+					<p dy=1.9 r=0.1/>
+					<p dy=0.5 dx=0.8 r=0.1/>
+					<p dx=4 r=1/>
+					<p dx=2.5 dy=-1 r=0.1/>
+					<p dx=1 dy=-1 r=0.1/>
+				</group>//left side
+				<clone=reflectX/>
+			</line>
+		</group pz=-0.25>//0.1> //thickness
+		
+		<group>//left wheel box
+			<vs=cylinder whl='1.6,1.6,1' sectR=6/>
+			<a='wrap' mt_use=bogie-lid />
+			<a='front' mt_use=bogie-lid/>
+			<do  align=back/>
+			<mt_use=bogie 4wire lineWidth=0.3>
+				<short p0='0.6,0.4,-0.1' dx=4/>
+				<short p0='0.6,-0.4,-0.1' dx=4/>
+			</mt_use>
+		</group px=-8>//left wheel box
+		<clone=reflectX/>
+		
+		<group>// spring
+			<vs=cylinder whl='2,2,2' sectR=5 angleFromTo='-190,10'/>
+			<a=wrap mt_use=bogie-spring uTex2nm_use=spring01nm  xywh2nm_GL='0.5,0,0,4' />//uColor=#ff0000 />
+			<do='merge normals'/>
+		</group headZto=y px=4.3 py=-1.0 pz=-0.2 align=bottom >// spring
+		<clone=reflectX/>
+		
+
+		<group>//springs box
+			<box='5,1,2'/>
+			<a='top,front,left,right' />//uColor=#0000ff />
+			<group>//tonque
+				<box='1.5,1.5,1'/>
+				<a='front,left,right' />//uColor=#00ff00 />
+				<do px=1 applyTo='bottom left'/>
+				<do='calc normals'/>
+			</group align='front right top' px=2.5 py=-0.5 pz=1>//tonque
+		</group align='back top' py=2 pz=-0.3 >//springs box
+	
+	</group ay=90 px=6.5 >//right side
+	<clone=reflectX/>
+	
+	//car holder
+	<a='top,front,back'<mt_use=bogie box='13,1,2' py=0.5/>
+	<group>
+		<vs=cylinder whl='3,3,3' sectR=8/>
+		<a=wrap mt_use=bogie-spring  uTex2nm_use=spring01nm  xywh2nm_GL='0.5,0,0,4'/>
+	</group headZto=y align=bottom px=5 py=1 >//car holder
+	<clone=reflectX/>
+</group py=3.0> //entire bogie
+
+<element='wheel.txt' class=WheelPair pz=8 py=3 opaque/>
+<element='wheel.txt' class=WheelPair pz=-8 py=3 opaque/>
+
+

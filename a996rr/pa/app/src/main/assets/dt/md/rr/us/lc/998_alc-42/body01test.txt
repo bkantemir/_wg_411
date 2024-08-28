@@ -1,0 +1,19 @@
+<include='/dt/mt/materials.txt'/>
+
+<color_as=body uColor=#0000ff/>
+<mt_save_as=body mt_use=teflon uColor_use=body/>
+<color_as=roof uColor=#111111/>
+<mt_save_as=roof mt_use=teflon uColor_use=roof/>
+<color_as=front-side-ribs uColor=#ff0000/>
+<mt_save_as=front-side-ribs mt_use=hi-gloss uColor_use=front-side-ribs/>
+
+<mt_save_as=outline-top mt_use=body uColor=#ffffff/>
+<mt_save_as=outline-base mt_use=body uColor=#ffff00/>
+
+
+<element name=body attachTo=bogie1 opaque hit>
+	<group>//entire body
+		<include=cabin01.txt>//cabin
+	</group align=bottom py=8>//entire body
+
+</element>

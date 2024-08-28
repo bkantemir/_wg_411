@@ -1,0 +1,274 @@
+<include='/dt/mt/materials.txt'/>
+
+<texture_as=body01 src=body01.bmp ckey=#00ff00/>
+
+<color_as=body uColor=#0000ff/>
+<mt_save_as=body mt_use=teflon uColor_use=body/>
+
+
+<mt_save_as=outline-top mt_use=body uColor=#ffffff/>
+<mt_save_as=outline-base mt_use=body uColor=#ffff00/>
+
+<mt_save_as=handle mt_use=metal-wire lineWidth=0.3 />//uAlphaFactor=1 uAlphaBlending=0 />
+
+
+<element name=body attachTo=bogie2 headTo=bogie1 place2middle opaque hit>
+	<group>//entire body 
+		<group>//body itself
+			<group> //bottom outline
+				<box='18,2,111' />
+				<a='left,right' mt_use=outline-base xywh_GL='0.5,0,0,1' length=109/>
+			</group align='bottom back' pz=2> //bottom outline
+			<group> //top outline
+				<a='left,right' height=1 mt_use=outline-top xywh_GL='0.5,0,0,1' />
+			</group align='bottom back' py=16> //top outline
+			<group> //main wall
+				<box='18,14,111' />
+				<mt_use=body />
+				<group mark='body-side,body-front-blank'>
+					<a='left,right' length=50.5/>
+					<mt_use=body 4wire lineWidth=0.1 noShadow >//uColor=#ff0000>
+						<short p0='9.1,-5.5,-25' dz=50/>
+						<short p0='-9.1,-5.5,-25' dz=50/>
+					</mt_use>
+					<group mark='front-grills'>//right grills
+						<group>//front small grill
+							<box='0,5,3' >
+								<a=right mt_use=black noShadow/>
+								<a=right mt_use=body+nm1x4 xywh2nm_GL='0,0.5,0,10'/>
+								<ln_square whl='3.4,5.4,0' r=0.1 mt_use=body 4wire lineWidth=0.2 noShadow ay=90 px=0.2/>
+							</box>
+						</group py=3.5 pz=15>//front small grill
+						<group>//front big grill
+							<vs=box-tank whl='0,10,6' ext=-1 extX=0 >
+								<a=right mt_use=black noShadow/>
+								<a=right mt_use=body+nm16x16diag xywh2nm_GL='0,0,3.5,5.9' />//mark='body-side2'/>
+								<mt_use=body 4wire lineWidth=0.3 noShadow >
+									<ln_square whl='6.4,10.4,0' r=1 ay=90 px=0.2/>
+									<short p0='0,-5,0' dy=10 />
+									<ln_square whl='8,12,0' r=0.1 lineWidth=0.2 ay=90 px=0.1/>
+								</mt_use>
+							</vs>
+							<group mark=guide>//rivets line
+								<mt_type=flat uColor=#ff0000 lineWidth=0.2 dontRender>
+									<ln_square whl='7,11,0.1' r=0.6 />
+								</mt_type>
+							</group ay=90>//rivets
+							<group>//rivets
+								<a=right box='0,0.6,0.6' mt_use=body+rivets2 xywh2nm='0,0,2,2' />
+								<clone2line=guide interval=2 />
+							</group>//rivets
+						</group py=0.5 pz=6>//front big grill
+					</group px=9.1>//right grills
+					<clone=reflectX mark='front-grills'/>
+				</group align=front pz=111>
+				
+				<group mark='body-mid-fishtank'>
+					<element attachTo=body>
+						<box='17.9,14,24'/>
+						<a='left,right' mt_use=body+nm16x16diag xywh2nm_GL='0,0,24,14' uAlphaFactor=0.7 />
+					</element>
+					<box='0,14,24'/>
+					<element name=inside attachTo=body class=Interior lightIntencity=0.5 lightColor=#ccbbFF >
+						<mt_use=metal uColor=#888888 >
+							<a='front,back' width=18 side=in mt_use=black/>
+							<a='bottom' width=18 side=in />
+							
+							/*
+							<group>//radiator
+								<vs=box-tank whl='8,9,18' ext=-1 extF=0 extD=0 sectR=1>
+									<a='top all,back h' />
+									<texture_as=nm8x2radiator src='/dt/md/parts/grill/nm8x2radiator.bmp' glRepeat=GL_REPEAT/>
+									<a='left,right' nm=nm8x2radiator xywh2nm_GL='0,0,6,12' />
+								</vs>
+								<do='calc merge normals'/>
+								
+							</group align='back bottom' py=10 pz=-6>//radiator  py=-7
+							*/
+							//<mt_use=metal uColor=#ff0000 >
+							
+							<group>//radiator
+								<vs=box-tank whl='8,6,3' ext=-1 extF=0 extD=0 sectR=1>
+									<a='top all,back h' />
+									<texture_as=nm8x2radiator src='/dt/md/parts/grill/nm8x2radiator.bmp' glRepeat=GL_REPEAT/>
+									<a='left,right' nm=nm8x2radiator xywh2nm_GL='0,0,1,10' />
+								</vs>
+								<do='calc merge normals'/>								
+							</group align='back bottom' py=-7 pz=9.5>//radiator  py=-7
+							
+							<group>//radiator
+								<vs=box-tank whl='8,8,12' ext=-1 extD=0 sectR=1>
+									<a='top all,back h,front h' />
+									<texture_as=nm8x2radiator src='/dt/md/parts/grill/nm8x2radiator.bmp' glRepeat=GL_REPEAT/>
+									<a='left,right' nm=nm8x2radiator xywh2nm_GL='0,0,4,10' />
+								</vs>
+								<do='calc merge normals'/>								
+							</group align='back bottom' py=-7 pz=-4>//radiator  py=-7
+
+							<group>//radiator 2
+								<vs=box-tank whl='10,6,4' ext=-1 extD=0 extB=0 sectR=1>
+									<a='top all,back h' />
+									<a='left,right' />
+								</vs>
+								<do='calc merge normals'/>
+								<vs=cylinder whl='3,2,3' sectR=6>
+									<a=wrap align=back pz=2 py=-2/>
+								</vs>
+							</group align='back bottom' py=-7 pz=-12>//radiator 2
+							
+							<group> //walls inside
+								<mt_use=gunmetal>
+									<include='fishtank-walls.txt'/>
+								</mt_use>
+								<do=invert />
+							</group>//walls inside
+								
+						</mt_use>
+					</element>
+					
+					<mt_use=body/>
+					<include='fishtank-walls.txt'/>
+					
+					<group>//fishtank inner wires
+						<mt_use=body 4wire lineWidth=0.3 noShadow >//uColor=#ff0000 >
+							<short p0='0,2,-12' dz=24 />
+							<short p0='0,-2,-12' dz=24 />
+							<short p0='0,-7,-1.5' dy=14 />
+							<short p0='0,-7, -5.5' dy=14 />
+						</mt_use>
+					</group px=8.8/>
+					<clone=reflectX/>
+					
+
+					<group> //smaller window frame (right)
+						<ln_square whl='5.4,9.4,0' r=1 mt_use=body 4wire lineWidth=0.3 noShadow/>
+						<group mark=guide>//rivets line
+							<mt_type=flat uColor=#ff0000 lineWidth=0.2 dontRender>
+								<ln_square whl='6.5,10.5,0.1' r=0.8 />
+							</mt_type>
+						</group>//rivets
+						<group>//rivets
+							<a=front box='0.6,0.6,0' mt_use=body+rivets2 xywh2nm='0,0,2,2' />
+							<clone2line=guide interval=2 />
+						</group>//rivets
+					</group ay=90 px=9.1 pz=8.5> //smaller window frame
+					<clone=reflectX/>
+					
+					<group> //big window frames (right)
+						<mt_use=body 4wire lineWidth=0.2 noShadow>// mt_type=flat uColor=#ff0000>
+						//<mt_use=handle lineWidth=0.2 >// mt_type=flat uColor=#ff0000>
+							<group>
+								<line>
+									<p pxyz='0,0,8'/>
+									<p py=6.5 r=2/>
+									<p pxyz='0,0,0.5' r=1/>
+									<p py=-6.5 pz=8 r=2/>
+									<p pxyz='0,0,8'/>
+								</line>
+							</group>
+							<clone=reflectZ/>
+							<group>
+								<line>
+									<p pxyz='0,6.3,0'/>
+									<p pz=6.5 r=1.5/>
+									<p pxyz='0,0.5,0' r=0.5/>
+									<p py=6.3 pz=-6.5 r=1.5/>
+									<p pxyz='0,6.3,0'/>
+								</line>
+							</group>
+							<clone=reflectY/>
+						</mt_use>
+					</group px=9.1 pz=-3.5> //big window frame
+					<clone=reflectX/>
+					
+				</group align=front pz=61 >
+
+				
+			</group align='top' py=16> //main wall
+			<group>//roof
+				
+				<color_as=roof uColor=#444444/>
+				<mt_save_as=roof mt_use=teflon uColor_use=roof/>
+				<mt_use=roof/>
+				<texture_as=roof-body-grill src=roof-body-grill.bmp glRepeat=GL_REPEAT/>
+				<vs=box-tank whl='12,1,111' extU=1 extX=2.5 sectR=3 />
+				<a='left,right' uTex2nm_use=roof-body-grill xywh2nm_GL='0,0.25,30,0.5' uColor=#444444/>
+				<a='top all noMid' mark=slope/>
+				<a=back />
+				<do sizeD='1,0,0' applyTo='bottom'/>
+				<do='calc normals'/>
+				<group>//roof-slop front grills
+					<group>//right roof black grill
+						<box='2,2,0.2' sectX=5 >
+							<a=front mt_use=black />//uColor=#00ff00/>
+							<a=front mt_use=roof+nm4x1 xywh2nm_GL='0,0.5,5,0'/>
+						</box>
+						<mt_use=roof 4wire lineWidth=0.3 >//uColor=#ff0000>
+							<line >
+								<p pxyz='-1,1,0.2'/>
+								<p dx=2 sectN=3 r=0.1/>
+								<p dy=-2 r=0.1/>
+								<p dx=-2 sectN=3 r=0.1/>
+								<p dy=2 />						
+							</line>
+						</mt_use>
+						<do scale='1.2,1.5,1'/>
+						<z2mesh all markedAs=slope onThe=top px=7.25 py=53 />
+						<do='calc normals'/>
+					</group>//right roof black grill
+					<clone=reflectX/>
+				</group>//roof-slop front grills
+				<clone pz=-87/>
+				
+					//<a='top' uColor=#ff0000/>
+				<include=rooftop.txt/>
+				
+			</group align='back bottom' py=17>//roof
+		</group align=bottom>//body itself 
+		
+		<group>//underneath 
+			<group>//main tank
+				<vs=box-tank whl='18,6,30' extX=-2 extD=-3 sectR=1/>
+				<mt_use=gunmetal/>
+				<a='front,back,left v,right v'/>
+				<group>//right wings
+					<group>//front wing
+						<vs=box whl='0,2,4' sectZ=4/>
+						<a=right />//uColor=#ffffff/>
+						<do py=2 applyTo='front 1-pow3' toY=0/>
+					</group align='top back' pxyz='9,3,15'>//front wing
+					<clone=reflectZ/>
+				</group>//right wings
+				<clone=reflectX/>
+			</group align='top' pz=65>//main tank
+			
+			<group>//rear black box
+				<mt_use=gunmetal />//uColor=#ff0000/>
+				<box='16,4,5'/>
+				<a='front,back,left,right'/>
+				<mt_use=gunmetal 4wire lineWidth=0.3 />//uColor=#ffffff/>
+				<short p0='8.1,0,-2.5' dz=5/>
+				<short p0='-8.1,0,-2.5' dz=5/>
+			</group align=top pz=46>//rear black box
+			
+			<group>//front chrome box
+				<mt_use=silver />//uColor=#ff0000/>
+				<vs=box-tank whl='15,6,5' extD=-3 extX=-1.5/>
+				<a='front,back,left v,right v'/>
+				<group>//right small box
+					<vs=box-tank whl='0,2,3' extR=-0.6 extU=-1/>
+					<a='front,back,right v'/>
+				</group align='left top' pxyz='7.5,2.5,0.5'>//right small box
+				<clone=reflectX/>
+			</group align=top pz=84>//front chrome box
+			
+			<do='calc normals'/>
+		</group align=top>//underneath
+		
+	</group align=front py=8 pz=46>//entire body
+
+</element>
+
+	<include='cabin01.txt'/>
+	<include='bodyback01.txt'/>
+

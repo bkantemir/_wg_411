@@ -1,0 +1,14 @@
+
+<include='/dt/md/rr/wheel/w01d6.txt'/>
+
+<mt_save_as=wheel-bolts  mt_type=flat uColor=#bbbbbb noShadow lineWidth=0.5/>
+<element class="WheelPair" spokesN=3>
+	<group>
+		<dots mt_use=wheel-bolts>
+			<ring whl='1.2,1.2,0' sectR=3 />
+		</dots>
+	</group >/py=20>
+	<buildWheelPair=group2dish offset2wall=2.3/>
+</element>
+
+

@@ -1,0 +1,18 @@
+
+//<mt_save_as=bogie mt_use=rust/>
+
+
+<element='bogie/bogie01.txt' name=bogie1 class="OnRails" wheelBase=20 opaque pz=38 scale=1 />//38
+<element='bogie/bogie01.txt' name=bogie2 class="OnRails" wheelBase=20 opaque pz=-38 scale=1 />
+
+<element='brakes01.txt' attachTo=bogie1 pz=15/>
+<element='brakes01.txt' attachTo=bogie2 pz=-15/>
+
+<include='body01.txt' />
+
+<element='bogie/bogie2body.txt' attachTo=body opaque pz=38 scale=1 />//38
+<element='bogie/bogie2body.txt' attachTo=body opaque pz=-38 scale=1 />
+
+<element='/dt/md/rr/coupler/nobox.txt' class=coupler full attachTo=body pz=58 lever=7 />//65
+<element='/dt/md/rr/coupler/nobox.txt' class=coupler full attachTo=body pz=-58 lever=7 ay=180 />
+

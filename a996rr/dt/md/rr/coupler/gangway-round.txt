@@ -1,0 +1,15 @@
+
+<mt_use=matte uColor=#222222/>
+<group>
+		<vs=cylinder whl='7.8,7.8,12.8' sectR=8 angleFromTo='0,180'/>
+		<a='wrap'/>
+		<group>//bottom
+			<a='wrap' length=1/>
+			<do scaleTo='5.8,2.9,1' applyTo=back/>
+		</group pz=-6.9 >
+		<group>//top
+			<a='wrap,front' length=1 />//uColor=#ff0000/>
+			<do scaleTo='5.8,2.9,1' applyTo=front/>
+		</group pz=6.9 >
+		<do='calc normals'/>
+</group headZto=y align='bottom' py=0.1>

@@ -1,0 +1,15 @@
+
+<mt_use=matte uColor=#222222/>
+<group>
+		<vs=box-tank whl='7.8,14.8,1' ext=-1 extZ=0 sectR=1/>
+		<a='left v,right v,top'/>
+		<do='calc normals'/>
+</group align='bottom' py=0.1>
+
+<element='gangway-round.txt' pz=-0.5 />
+<element='gangway-round.txt' pz=0.5 ay=180/>
+
+<element='gangway-slit.txt' />
+
+//<element='gangway-rib.txt' pz=0.35/>
+//<element='gangway-rib.txt' pz=-0.35/>

@@ -1,0 +1,8 @@
+<mt_save_as=coupler mt_use=rust />
+<mt_use=coupler />
+
+	<group>//axis/shaft
+		<mt_use=coupler -nm/>
+		<vs=box whl='1.3,1.3,1' />
+		<a='top,left,right' />
+	</group align=back>

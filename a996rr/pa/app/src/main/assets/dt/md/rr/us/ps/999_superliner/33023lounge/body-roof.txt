@@ -1,0 +1,76 @@
+		<group>//roof
+			<mt_use=windows/>
+			<group>
+				<vs=cylinder whl='7.9,7.9,150' sectR=3/>
+				<a=wrap angleFromTo='0,90' />
+			</group px=5>
+			<clone=reflectX asis/>
+
+			<mt_use=body/>
+			<group>
+				<vs=cylinder whl='8,8,160' sectR=3/>
+				//<a=wrap angleFromTo='0,90' />//uTex2nm_use=nm1x4rib xywh2nm_GL='0.5,0,0,8' flip2nm=90/>
+				<a='front,back' angleFromTo='0,90' />
+			</group px=5>
+			<clone=reflectX asis/>
+
+			<box='10,4,160' mt_use=body />
+			<a='top' mt_use=roof py=2/>
+			<a='front,back' py=2/>
+			<do='calc merge normal'/>
+			
+			<mt_use=body/>
+			<group>//arch
+				<group>
+					<vs=cylinder whl='8,8,2' sectR=3/>
+					<a=wrap angleFromTo='0,90' mt_use=roof/>
+					//<a='front,back' angleFromTo='0,90' />
+				</group px=5>
+				<clone=reflectX asis/>
+			</group pz=-58.5>
+			<clone pz=13/>
+			<clone pz=13/>
+			<clone pz=13/>
+			<clone pz=13/>
+			<clone pz=13/>
+			<clone pz=13/>
+			<clone pz=13/>
+			<clone pz=13/>
+			<clone pz=13/>			
+			<clone scaleTo='x,x,9' align=front pz=80/>
+			<clone=reflectZ/>
+			
+			<mt_type=flat uColor=#ff0000 dontRender/>
+			<vs=cylinder whl='8.2,8.2,20' sectR=3/>
+			<a=wrap angleFromTo='0,90' px=5 mark=roof-slope/>
+			
+			<group>//roof frames pair
+				<group>//right frame
+					<mt_use=matte-wire uColor=#111111 lineWidth=0.5 noShadow>
+					//<mt_type=flat uColor=#ffff00 lineWidth=0.5 noShadow>
+					<line>
+						<p pxyz='0,0,0'/> //mid bottom
+						<p py=4.1 r=0.1/> //mid top
+						<p px=5.5 r=0.2/> //top right
+						<p py=0 r=0.5/> //bottom right
+						<p px=-5.5 r=0.5/> //bottom left
+						<p py=4.1 r=0.2/> //top left
+						<p px=0 /> //mid top
+					</line>
+					<line2mesh all markedAs=roof-slope onThe=right />
+				</group>//right frame
+				<clone=reflectX/>
+			</group pz=-65>//roof frames pair
+			<clone pz=13/>
+			<clone pz=13/>
+			<clone pz=13/>
+			<clone pz=13/>
+			<clone pz=13/>
+			<clone pz=13/>
+			<clone pz=13/>
+			<clone pz=13/>
+			<clone pz=13/>
+			<clone pz=13/>			
+			
+		</group py=20>//roof
+		

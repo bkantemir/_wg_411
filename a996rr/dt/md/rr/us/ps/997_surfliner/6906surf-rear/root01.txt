@@ -1,0 +1,99 @@
+<model="84' Superliner II coach" yearFrom=1991 />
+
+<include='/dt/mt/materials.txt'/>
+
+<mt_save_as=bogie mt_use=rust/>//metal uColor=#000066/>
+<mt_save_as=bogie-lid mt_use=rust/>
+<mt_save_as=wheel_main mt_use=rust />
+
+<mt_save_as=body mt_use=silver/>metal uColor=#ddddd0/>
+<mt_save_as=body2 mt_use=satin uColor=#110099/>//0000ff/>
+<mt_save_as=roof mt_use=dark-silver/>//satin uColor=#222233/>//0000cc />//body2/>//metal uColor=#666660/>
+<mt_save_as=handle mt_use=metal-wire lineWidth=0.3/>
+<mt_save_as=windows mt_use=glass-tintBrown noStickers forElement=glass/>
+<mt_save_as=inside-walls mt_use=matte uColor=#444466 noStickers uTex2nm=-1 forElement=inside/>
+
+<mt_save_as=window-frame mt_use=metal-wire uSpecularIntencity=0.5 uColor=#443333 lineWidth=0.4 noShadow/>
+//<mt_save_as=window-frame mt_type=flat uColor=#ffffff lineidth=0.4/>
+
+<mt_save_as=inside mt_use=matte uColor=#ccbbaa noStickers uTex2nm=-1 forElement=inside/>
+
+<texture_as=nm1x4rib src='/dt/md/parts/grill/nm1x4rib-soft.bmp' glRepeat=GL_REPEAT/>
+
+<element='/dt/md/rr/bogie/97us_phase1/bogie00.txt' name=bogie1 class="OnRails" wheelBase=16 opaque pz=60 ay=180/>
+<element='/dt/md/rr/bogie/97us_phase1/bogie00.txt' name=bogie2 class="OnRails" wheelBase=16 opaque pz=-60 />
+<element='/dt/md/rr/coupler/nobox.txt' class=coupler full attachTo=bogie1 ay=180 pz=-7 lever=14 />//front
+//<element='/dt/md/rr/coupler/nobox.txt' class=coupler attachTo=body pz=80 />
+<element='/dt/md/rr/coupler/nobox.txt' class=coupler full attachTo=bogie2 ay=180 pz=-7 lever=14 /> //rear
+
+<element name=body attachTo=bogie2 headTo=bogie1 place2middle py=7 opaque hit>
+
+	<element='/dt/md/rr/bogie/97us_phase1/bogie2body.txt' attachTo=body opaque pz=60 ay=180 />
+	<element='/dt/md/rr/bogie/97us_phase1/bogie2body.txt' attachTo=body opaque pz=-60 />
+
+	<include='../../999_superliner/body-common.txt'/>
+	<group>//door group
+		<include='../doors.txt' pz=-32/>
+		<include='../lv1back08.txt' align=front pz=-37/>
+	</group>//door group
+	<clone ay=180 asis/>
+	<include='../lv1mid54wnd3.txt' />
+	<include='../lv2wnd11.txt'/>
+	<include='../body-roof.txt'/>
+	//interior
+	
+	<group>//level 1
+		<include='../inside13coach.txt' pz=0/>
+		<include='../inside13coach.txt' pz=13/>
+	</group py=-5>//level 1
+	<group>//level 2
+		//<include='../inside13coach.txt' pz=-65 />
+		<include='../inside13coach.txt' pz=-52/>
+		<include='../inside13coach.txt' pz=-39/>
+		<include='../inside13coach.txt' pz=-26/>
+		<include='../inside13coach.txt' pz=-13/>
+		<include='../inside13coach.txt' pz=0/>
+		<include='../inside13coach.txt' pz=13/>
+		<include='../inside13coach.txt' pz=26/>
+		<include='../inside13coach.txt' pz=39/>
+		<include='../inside13coach.txt' pz=52/>
+		//<include='../inside13coach.txt' pz=65/>
+	</group py=10>//level 2
+	
+</element>
+
+<element='frontwall2.txt' attachTo=body pz=80 hit/>
+//<element='frontwall2.txt' attachTo=body pz=-80 ay=180 hit/>
+<element='../frontwall.txt' attachTo=body pz=-80 ay=180 hit/>
+
+<mt_save_as=prints mt_use=satin/>// uAmbient=0.6/>
+<for_element=body>
+
+	<texture_as=stripes src='../stripe01.bmp' ckey=#00ff00 glRepeat=GL_REPEAT/>
+	<mt_use=prints uTex0_use=stripes sticker/>
+	<a2mesh wh='160,2' xywh='0,0,1,8' all markedAs=body onThe=right py=3 detachBy=0.05 />
+	<a2mesh wh='160,2' xywh='0,0,1,8' all markedAs=body onThe=left py=3 detachBy=0.05 />
+	<box='18.1,1.5,160'/>
+	<a='left,right' xywh='0,0,1,8' py=9.6 />
+
+	<mt_use=prints uTex1mask_src='../amtrak-ca.bmp' uTex1alphaChannelN=0 uColor=#111111 sticker/>
+	<box='18.1,2.7,22'/>
+	<a='left,right' xywh_GL='0,0,1,1' py=6.7 pz=0/>
+	
+	<mt_use=prints uTex1mask_src='../surfliner.bmp' uTex1alphaChannelN=0 uColor=#ffff00 sticker/>
+	<box='18.1,3.3,36'/>
+	<a='left,right' xywh_GL='0,0,1,1' py=11.3 />
+
+	//number
+	<mt_use=prints uTex1mask_src='number.bmp' uTex1alphaChannelN=0 uColor=#ffff00 sticker/>
+	<box='18.1,2.5,10'/>
+	<a='left,right' xywh='0,0,64,16' py=11.6  pz=75/>
+	<a='left,right' xywh='0,0,64,16' py=11.6 pz=-75/>
+	//coach
+	<mt_use=prints uTex1mask_src='coach.bmp' uTex1alphaChannelN=0 uColor=#ffff00 sticker/>
+	<box='18.1,2.5,20'/>
+	<a='left,right' xywh='0,0,128,16' py=11.6 pz=60/>
+	<a='left,right' xywh='0,0,128,16' py=11.6 pz=-60/>
+
+</for_element>
+

@@ -1,0 +1,19 @@
+
+<mt_use=inside/>
+<group> //coupe
+	<group>//left walls
+		<box='12,8,5'/>
+		<a='front' side=in/>
+		<a='left' side=','/>
+		<do align='bottom front'/>
+		<group>//bed
+			<box='12,2,3'/>
+			<a='top,back' />//uColor=#0000ff/>
+		</group align='bottom front' py=1>//bed
+	</group align=right pz=6.5>//left side
+	<clone=reflectZ asis/>
+	<group>//table
+		<box='2,0,3'/>
+		<a='top' />//uColor=#ff0000/>
+	</group align=right py=4>//table
+</group px=8 py=0 >

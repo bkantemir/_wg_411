@@ -1,0 +1,6 @@
+
+<mt_use=metal-wire lineWidth=0.4 noShadow />//uColor=#111111/>
+<group>
+	<ln_square wh='8.2,15.2' r=2/>
+</group py=7.5 >
+

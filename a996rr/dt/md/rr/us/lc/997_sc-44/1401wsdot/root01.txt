@@ -1,0 +1,100 @@
+<model="Siemens SC-44 Charger Amtrak" yearFrom=2016 />
+
+<include='/dt/mt/materials.txt'/>
+<texture_as=body01 src='../body01.bmp' ckey=#00ff00/>
+<texture_as=body02 src='body02.bmp' ckey=#00ff00/>
+
+<mt_save_as=body mt_use=hi-gloss uColor=#ffeedd/>
+
+<mt_save_as=roof mt_use=teflon uColor=#222922/>
+<mt_save_as=top-lids mt_use=dark-silver/>
+
+<mt_save_as=cabin-body mt_use=body />
+<mt_save_as=cabin-nose mt_use=hi-gloss uColor=#222922 />
+
+<mt_save_as=cabin-roof mt_use=gloss uColor=#222222/>
+
+<mt_save_as=front-side-ribs mt_use=cabin-nose/>
+
+<mt_save_as=outline-top mt_use=hi-gloss uColor=#111111/>
+<mt_save_as=outline-base mt_use=teflon uColor=#551111/>
+
+<mt_save_as=lighted-number mt_type=flat uTex1mask_src=number.bmp uTex1alphaChannelN=0 sticker/>
+
+<mt_save_as=back-wall mt_use=body />
+
+
+<include='../root00.txt' />
+
+
+<for_element=cabin>
+	//front logo
+	<mt_use=satin uColor=#ffffff uTex1mask_use=body02 uTex1alphaChannelN=0 uAlphaFactor=0.8 uAmbient=0.5 sticker />
+	<a2mesh wh='9,1.3' xywh='256,143,129,23' all markedAs=nose onThe=front detachBy=0.05 py=4 px=0 />
+
+	<mt_use=satin uTex0_use=body01/>
+	<group>//US flag
+		<box='18.1,1.8,2.2'/>					
+		<a='left,right' xywh='1,22,21,13'/>
+	</group py=8.4 pz=9.5>//US flag
+	<mt_use=satin uTex1mask_src='number.bmp' uTex1alphaChannelN=0 uColor=#111111 uAlphaFactor=0.9 sticker/>
+	//number 1401
+	<a2mesh wh='6,3' xywh_GL='0,0,1,1' all markedAs=cabin-side onThe=right detachBy=0.05 py=4.5 px=-12.5/>
+	<a2mesh wh='6,3' xywh_GL='0,0,1,1' all markedAs=cabin-side onThe=left detachBy=0.05 py=4.5 px=12.5/>
+	
+</for_element>
+
+<for_element=body>
+	//side logo
+	<mt_use=satin uColor=#222922 uTex1mask_use=body02 uTex1alphaChannelN=0 uAlphaFactor=0.8 uAmbient=0.5 sticker />
+	//round logo
+	<group>
+		<box='18.1,10,10'/>
+		<a='left,right' xywh='0,0,129,129'/>
+	</group py=18 pz=40.8 >
+	//wsdot text
+	<group>
+		<box='18.1,3,25'/>
+		<a='left,right' xywh='0,134,255,32'/>
+	</group py=14 pz=9 >
+	//Siemens
+	<mt_adjust uTex1mask_use=body01 uColor=#0066ff />
+	<group>
+		<box='18.1,1.2,8'/>
+		<a='left,right' xywh='22,2,106,19'/>
+	</group py=17.5 pz=0.8 >
+
+</for_element>
+
+<for_element=bodyback>
+	<mt_use=satin uTex1mask_use=body02 uColor=#222922 uTex1alphaChannelN=0 sticker />
+	//rear black
+	<group>
+		<box='18.1,7,18'/>					
+		<a='right' xywh='140,0,244,128'/>
+		<a='left' flip=h xywh='140,0,244,128'/>
+	</group align='top back' py=16.1 >
+	//cascades
+	<mt_use=satin uTex0_use=body02 uAlphaFactor=0.9 sticker />
+	<group>
+		<box='18.1,4.5,28'/>					
+		<a='left,right' xywh='0,166,512,90'/>
+	</group py=5.3 pz=18 >
+	
+	//backwall black
+	<group>
+		<mt_use=roof/>
+		<box='18.1,8,0.1' />
+		<a='back,left,right' />
+	</group py=13.1>
+
+	//backwall
+	<mt_use=satin uColor=#ffffff uTex1mask_use=body02 uTex1alphaChannelN=0 sticker uAlphaFactor=0.8 uAmbient=0.5/>
+	<box='3,3,0.2'/>
+	<a=back xywh='0,0,129,129' px=5.5 py=16.7 />
+	<mt_adjust uTex1mask_src='number.bmp' />
+	<box='5,2.5,0.2'/>
+	<a=back px=-5.5 py=16.7 />
+</for_element>
+
+

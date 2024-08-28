@@ -1,0 +1,30 @@
+
+<texture_as=light01 src='lights02.bmp' />
+
+<texture_as=lightglow src='lights01glows.bmp' ckey=#0000ff />
+<mt_save_as=light02glow scope=app mt_type=flat uTex0_use=lightglow noShadow uAlphaFactor=1 layer2as="" />
+
+<box='20,5,10'/>
+
+<element name="light_off" opaque>
+	<vs=cap whl='10,10,5' sectR=10 sectZ=2 />
+	<group>
+		<a=front mt_use=cabochon uColor=#ff9900 />
+	</group scale=0.1 >
+</element >
+
+
+<element name="light_on" transparent>
+	<group>
+		<vs=cap whl='10,10,5' sectR=10 sectZ=2 />
+		<a=front mt_type=flat uColor=#ffeedd />
+		
+		<group> //glow
+			<mt_use=light02glow />
+			<vs=cylinder whl='10,10,10' sectR=10/>
+			<a=wrap side=in xywh='4.5,0,0,2'/>
+			<do scale='3,3,2' applyTo='front' />
+		</group align=back> //glow
+		
+	</group scale=0.1 >
+</element >

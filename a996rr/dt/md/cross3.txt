@@ -1,0 +1,13 @@
+
+<mt_type=flat lineWidth=1 lineWidthFixed=1 uColor=#ffffff/>
+<group>
+	<short p0='0,0,0' dx=1 uColor=#ff0000/>
+	<short p0='0,0,0' dy=1 uColor=#00ff00/>
+	<short p0='0,0,0' dz=1 uColor=#0000ff/>
+	<mt_adjust lineWidth=3/>
+	<short p0='0,0,0' dx=-1 uColor=#ff0000/>
+	<short p0='0,0,0' dy=-1 uColor=#00ff00/>
+	<short p0='0,0,0' dz=-1 uColor=#0000ff/>
+</group scale=0.5>
+
+

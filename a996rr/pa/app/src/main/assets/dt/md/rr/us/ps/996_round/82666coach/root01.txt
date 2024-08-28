@@ -1,0 +1,281 @@
+<model="84' Amfleet 1 coach car" yearFrom=1973 />
+
+<include='/dt/mt/materials.txt'/>
+
+<mt_save_as=bogie mt_use=gunmetal/>//dark-silver/>
+<mt_save_as=bogie-lid mt_use=bogie>//rust/>
+<mt_save_as=bogie-spring mt_use=metal uColor=#1111ee/>
+<mt_save_as=wheel_main mt_use=gunmetal uColor=#cccccf/>//rust />//chrome/>//
+
+
+<mt_save_as=body mt_use=matte-metal uColor=#efe8e0/>//silver-mid/>//metal uColor=#a8a0af/>//
+<mt_save_as=body-ribs uTex2nm_use=nm1x4rib mt_use=body/>//metal uColor=#999099/>
+<mt_save_as=body-roof mt_use=satin uColor=#9f9890/>afa8a0///>//satin uColor=#9f9890 uTex2nm_use=nm1x4rib/>//
+<mt_save_as=body-vestibule mt_use=chrome/>
+<mt_save_as=body-wire mt_use=body 4wire lineWidth=0.3/>
+
+<mt_save_as=window-frame mt_use=metal-wire uSpecularIntencity=0.5 uColor=#443333 lineWidth=0.4 noShadow/>
+<mt_save_as=handle mt_use=metal-wire lineWidth=0.3/>
+<mt_save_as=windows mt_use=glass-tintBrown noStickers forElement=glass/>
+<mt_save_as=inside-walls mt_use=matte uColor=#664444 noStickers uTex2nm=-1/>// forElement=inside/>
+<mt_save_as=inside mt_use=matte uColor=#ccbbaa noStickers uTex2nm=-1/>//  forElement=inside/>
+<mt_save_as=prints mt_use=satin sticker/>//uAmbient=0.2/>
+
+<element='/dt/md/rr/bogie/96us_openwheels/bogie00.txt' name=bogie1 class="OnRails" wheelBase=16 opaque pz=60 scale=1/>
+<element='/dt/md/rr/bogie/96us_openwheels/bogie00.txt' name=bogie2 class="OnRails" wheelBase=16 opaque pz=-60 ay=180 scale=1 />
+<element='/dt/md/rr/coupler/nobox.txt' class=coupler full attachTo=bogie1 pz=7 lever=14 />
+<element='/dt/md/rr/coupler/nobox.txt' class=coupler full attachTo=bogie2 pz=7 lever=14 />
+
+<element name=body attachTo=bogie2 headTo=bogie1 place2middle py=7 opaque hit>
+	<element name=glass attachTo=body transparent />
+
+	<group>//body
+		//mid section with windows
+		<mt_use=body/>
+		<box='19,18,140' sectY=6/>
+		<a='front,back,bottom' side=in mt_use=inside-walls align=bottom/>
+		<box='19,6,140' sectY=2/>
+		<a='left,right' align=bottom side=',inside-walls' uTex2nm_use=nm1x4rib xywh2nm_GL='0,0,1,6' mark=body/>
+		<a='left,right' align=bottom py=6 mark=wnd-row dontRender/>
+		<a='left,right' align=bottom py=6 w=18.8 l=120 mt_use=windows />
+		<a='left,right' align=bottom side=',inside-walls' uTex2nm_use=nm1x4rib xywh2nm_GL='0,0,1,6' py=12 mark=body/>
+		<do/>
+		<group mark=body>//roof
+			//<vs='box-tank' whl='19,0,140' extU=1 extX=-1 sectR=1 sectX=4/>
+			<vs=cylinder whl='2,2,140' sectR=1/>
+			<a=wrap mt_use=body angleFromTo='0,90' px=8.5 uTex2nm_use=nm1x4rib xywh2nm_GL='0,0,1,2' flip2nm=90/>
+			//<a='front,back' angleFromTo='0,90' px=5 />
+			<a=wrap mt_use=body angleFromTo='90,180' px=-8.5 uTex2nm_use=nm1x4rib xywh2nm_GL='0,0,1,2' flip2nm=90/>
+			//<a='front,back' angleFromTo='90,180' px=-5/>
+			<group>
+				<box='17,1,140' />
+				<a='top' mt_use=body-roof sectX=4 uTex2nm_use=nm1x4rib xywh2nm_GL='0,0,1,12' flip2nm=90/>
+				//<a='front,back' />
+			</group py=0.5>
+		</group  py=18>//roof
+		//skirts
+		<box='19,1,140'/>
+		<a='left,right' mt_use=body-vestibule side=',black' align=top />//uColor=#ff0000 />
+		
+		<group>//vestibule
+			<mt_use=body/>
+			<box='19,18,10' sectY=6/>
+			<a='left,right' mt_use=body-vestibule mark=vestibule/>
+			<a='front' mt_use=body-vestibule/>
+			<do align=bottom/>
+			/*
+			<group>//roof
+				<vs='box-tank' whl='19,0,10' extU=1 extX=-1 sectR=1 sectX=4/>
+				<a='top all' />//uColor=#ff0000/>
+				<a=front />//uColor=#ff0000/>
+			</group  py=18>//roof
+			*/
+			
+			<group>//roof
+				//<vs='box-tank' whl='19,0,140' extU=1 extX=-1 sectR=1 sectX=4/>
+				<vs=cylinder whl='2,2,10' sectR=1/>
+				<a=wrap mt_use=body angleFromTo='0,90' px=8.5 uTex2nm_use=nm1x4rib xywh2nm_GL='0,0,1,2' flip2nm=90/>
+				<a='front' mt_use=body-vestibule angleFromTo='0,90' px=5 />
+				<a=wrap mt_use=body angleFromTo='90,180' px=-8.5 uTex2nm_use=nm1x4rib xywh2nm_GL='0,0,1,2' flip2nm=90/>
+				<a='front' mt_use=body-vestibule angleFromTo='90,180' px=-5/>
+				<group>
+					<box='17,1,10' />
+					<a='top' mt_use=body-roof sectX=4 uTex2nm_use=nm1x4rib xywh2nm_GL='0,0,1,12' flip2nm=90/>
+					<a='front' mt_use=body-vestibule />
+				</group py=0.5>
+			</group  py=18>//roof
+			
+			<group>//longer front skirt
+				<box='19,3,10' sectY=3/>
+				<a='left,right' mt_use=body-vestibule side=',black' align=top />//uColor=#00ff00/>
+				<do pz=1 applyTo='back bottom' toY=-1.1/>
+			</group/>
+			<do align=front/>
+			<group>//front-wall wire outline
+				<mt_use=body-wire >//uColor=#00ff00>
+					<line>
+						<p pxyz='9.4,0,0'/>
+						<p py=18 sectN=6 />
+						<p curve/>
+						<p pxyz='8.5,18.9,0'/>					
+						<p px=-8.5 sectN=4/>
+						<p curve/>
+						<p pxyz='-9.4,18,0'/>
+						<p py=0 sectN=6/>				
+					</line>
+				</mt_use>
+			</group pz=0.1>//front-wall wire outline
+			<group>//side handle
+				<mt_use=handle >
+					<line>
+						<p pxyz='0,0,0'/>
+						<p pz=2 r=0.5 />
+						<p dy=10 r=0.5 sectN=3/>
+						<p pz=0 />				
+					</line>
+				</mt_use>
+			</group pxyz='9.6,-0.5,-0.5'>//side handle
+			<clone=reflectX/>
+			
+		</group pz=80>//vestibule
+		<clone asis ay=180/>//=reflectZ/>
+		
+		//lift roof
+		<do py=1 applyTo='midX 1-pow2' fromY=18.1/>
+		//inflate sidewalls
+		<do sizeD='-6,0,0' applyTo='top pow2' fromY=8/>
+		<do sizeD='-5,0,0' applyTo='bottom pow2' toY=8/>
+		<do='calc merge normals'/>
+		
+		<group>//wnd-row
+			<mt_use=gloss uTex0_src='../stripes01.bmp'/>
+			<a2mesh wh='140,1' onThe=right all markedAs=wnd-row py=11.5 side=',inside-walls' xywh='0,0,1,4' />
+			<a2mesh wh='2,1' onThe=right all markedAs=vestibule py=11.5 px=79 sticker xywh='0,0,1,4' detachBy=0.1/>
+			<a2mesh wh='2,1' onThe=right all markedAs=vestibule py=11.5 px=-79 sticker xywh='0,0,1,4' detachBy=0.1/>
+			//stripes
+			<mt_use=gloss uColor=#ff0000/>
+			<a2mesh wh='140,0.6' onThe=right all markedAs=body py=0.5 sticker detachBy=0.1/>
+			<a2mesh wh='2,0.6' onThe=right all markedAs=vestibule py=0.5 px=79 sticker detachBy=0.1/>
+			<a2mesh wh='2,0.6' onThe=right all markedAs=vestibule py=0.5 px=-79 sticker detachBy=0.1/>
+			<mt_use=gloss uColor=#1100aa/>
+			<a2mesh wh='2,5' onThe=right all markedAs=vestibule py=8.5 px=79 sticker detachBy=0.1/>
+			<a2mesh wh='2,5' onThe=right all markedAs=vestibule py=8.5 px=-79 sticker detachBy=0.1/>
+			<group>				
+				<a=front box='140,1,0' py=-2.5 side=',inside-walls'/>
+				<group>//between windows half row
+					<group>//between windows
+						<a=front box='3,4,0' side=',inside-walls'/>
+					</group align=left px=5>//between windows
+					<clone px=13/>
+					<clone px=13/>
+					<clone px=13/>
+					<a=front box='13,4,0' side=',inside-walls' align=left px=57/>
+				</group>//between windows
+				<clone=reflectX/>
+				<mesh2mesh onThe=right all markedAs=wnd-row py=9 />
+			</group>
+			<group>//window frame			
+				<mt_use=window-frame/>
+				<line>
+					<p pxyz='0,-2,0'/>//bottom mid
+					<p py=2 sectN=2 r=0.1/>//top mid
+					<p px=5 r=0.5/> //NE
+					<p py=-2 sectN=2 r=0.5/> //SE
+					<p px=-5 r=0.5/>//SW
+					<p py=2 sectN=2 r=0.5/>//NW
+					<p px=0/>//top mid
+				</line>
+				<line2mesh onThe=right all markedAs=wnd-row py=9 detachBy=0.2/>	
+			</group>//window frame
+			<group>//half row
+				<clone pz=13/>
+				<clone pz=13/>
+				<clone pz=13/>
+				<clone pz=13/>
+			</group>//half row
+			<clone=reflectZ/>			
+		</group>//wnd-row
+		<clone=reflectX/>
+		
+		<group>//prints
+			<mt_use=prints uTex1mask_src='number.bmp' uTex1alphaChannelN=0 uColor=#ffffff />
+			<a2mesh wh='6,1.5' xywh_GL='0,0,1,1' onThe=right all markedAs=wnd-row px=60 py=7.5 detachBy=0.1/>
+			<a2mesh wh='6,1.5' xywh_GL='0,0,1,1' onThe=right all markedAs=wnd-row px=-60 py=7.5 detachBy=0.1/>
+			<mt_use=prints uTex1mask_src='coach.bmp' uTex1alphaChannelN=0 uColor=#ffffff />
+			<a2mesh wh='12,1.2' xywh_GL='0,0,1,1' onThe=right all markedAs=wnd-row px=67 py=10.3 detachBy=0.1/>
+			<mt_use=prints uTex1mask_src='/dt/md/rr/us/label/amtrak01.bmp' uTex1alphaChannelN=0 uColor=#ffffff/>
+			<a2mesh wh='10,5' xywh='0,0,256,111' onThe=right all markedAs=wnd-row px=-65 py=8.6 detachBy=0.1/>
+		</group>//prints
+		<clone ay=180/>
+		
+		<group>//lids			
+			<group>//side number
+				<box='0,2,8/>
+				<a=right mt_use=silver/>
+				<mt_use=prints uTex1mask_src='number.bmp' uTex1alphaChannelN=0 uColor=#000000 />
+				<a=right />
+				<group>
+					<mt_use=body-wire lineWidth=0.2/>//uColor=#ff0000/>
+					<ln_square wh='8.2,2.2' r=0.3/>
+				</group ay=90 pz=0.1/>
+			</group px=9.6 py=3.5>//side number
+			
+			<group>//top rails
+				<mt_use=handle lineWidth=0.5 />//uColor=#ff0000/>
+				<short p0='3.5,20,81' dz=-22/>
+				<short p0='7.8,17.8,80' dz=-17/>
+				<group>//small top lid
+					<mt_use=body-wire noShadow />//uColor=#ff0000/>
+					<ln_square wh='4,3' r=0.3/>
+					<line2mesh onThe=top all markedAs=body px=6 detachBy=0.1/>
+					<mt_use=body-roof noShadow/>
+					<a2mesh wh='3.8,2.8' onThe=top all markedAs=body px=6 detachBy=0.05/>
+				</group pz=60>//small lid
+				<clone pz=-5/>
+				<group>//small side lid
+					<mt_use=body-wire noShadow />//uColor=#ff0000/>
+					<ln_square wh='4,1.7' r=0.3/>
+					<line2mesh onThe=right all markedAs=body py=14.5 detachBy=0.1/>
+					<mt_use=black noShadow/>
+					<a2mesh wh='4,1.7' onThe=right all markedAs=body py=14.5 detachBy=0.05/>
+				</group pz=65>//small side lid
+			</group>//top rails
+			<clone=reflectZ/>
+
+		</group>//lids
+		<clone ay=180/>
+		
+		<group>//2 doors
+			<group>//1 door
+				<mt_use=body uTex2nm_src='../door-nm.bmp' uTex2nm_ckey=#ffffff>
+				//<mt_use=gunmetal uTex2nm_src='../door-nm.bmp' uTex2nm_ckey=#ffffff>
+					<a2mesh wh='8,16' onThe=right all markedAs=vestibule xywh2nm='0,0,16,32' py=9 px=74 sticker detachBy=0.05/>
+				</mt_use>
+				//door slit
+				<mt_use=black uAlphaFactor=0.7 lineWidth=0.4 />uColor=#ff0000/>
+				<ln_square wh='6.7,13.7' r=0/>
+				<line2mesh onThe=right all markedAs=vestibule py=9 px=74 detachBy=0.1 sticker/>
+				//window
+				<mt_use=black sticker/>
+				<a2mesh wh='4,4' onThe=right all markedAs=vestibule xywh2nm='0,0,8,16' py=11 px=74 detachBy=0.05/>
+				<mt_use=glass-tintBrown/>
+				<a2mesh wh='4,4' onThe=right all markedAs=vestibule xywh2nm='0,0,8,16' py=11 px=74 detachBy=0.05/>
+				<mt_use=body 4wire lineWidth=0.3 noShadow/>
+				<ln_square wh='3.8,4.2' r=0.3/>
+				<line2mesh onThe=right all markedAs=vestibule py=11 px=74 detachBy=0.1/>
+
+			</group>//1 door
+			<clone=reflectZ/>
+		</group>//2 doors
+		<clone=reflectX/>
+		
+		
+		<group>//inside
+			//<include='../inside13coach.txt' pz=-65 />
+			<include='../inside13coach.txt' pz=-52/>
+			<include='../inside13coach.txt' pz=-39/>
+			<include='../inside13coach.txt' pz=-26/>
+			<include='../inside13coach.txt' pz=-13/>
+			<include='../inside13coach.txt' pz=0/>
+			<include='../inside13coach.txt' pz=13/>
+			<include='../inside13coach.txt' pz=26/>
+			<include='../inside13coach.txt' pz=39/>
+			<include='../inside13coach.txt' pz=52/>
+			//<include='../inside13coach.txt' pz=65/>
+		</group py=0>//level 2
+		
+		<group>//underneath
+			<mt_use=gunmetal />//uColor=#ff0000/>
+			<box='13,6,10'/>
+			<a='left,right,front,back' align=top pz=35/>
+			<box='13,4,4'/>
+			<a='left,right,front,back' align=top pz=25/>
+			<box='13,5,40'/>
+			<a='left,right,front,back' align=top pz=-20/>
+		</group py=-1>//underneath
+
+	</group>//body
+</element>
+
+<element='../frontwall.txt' attachTo=body pz=80 hit/>
+<element='../frontwall.txt' attachTo=body pz=-80 ay=180 hit/>

@@ -1,0 +1,119 @@
+<model="84' Superliner II coach" yearFrom=1991 />
+
+<include='/dt/mt/materials.txt'/>
+
+<mt_save_as=bogie mt_use=dark-silver/>
+<mt_save_as=bogie-lid mt_use=rust/>
+<mt_save_as=wheel_main mt_use=rust />
+
+<mt_save_as=body mt_use=metal uColor=#eeeedd/>//b0aabb/>
+<mt_save_as=roof mt_use=silver/>//chrome/>//dark-silver/>//metal uColor=#888880/>//908899/>
+<mt_save_as=handle mt_use=body 4wire lineWidth=0.3/>
+<mt_save_as=windows mt_use=glass-tintBrown noStickers forElement=glass/>// uAlphaFactor=0.9
+<mt_save_as=inside-walls mt_use=matte uColor=#444466 noStickers uTex2nm=-1 forElement=inside/>
+<mt_save_as=inside mt_use=matte uColor=#ccbbaa noStickers uTex2nm=-1 forElement=inside/>
+
+<texture_as=nm1x4rib src='/dt/md/parts/grill/nm1x4rib-soft.bmp' glRepeat=GL_REPEAT/>
+
+<element='/dt/md/rr/bogie/98us_superliner/bogie00.txt' name=bogie1 class="OnRails" wheelBase=16 opaque pz=61 scale=1 />
+<element='/dt/md/rr/bogie/98us_superliner/bogie00.txt' name=bogie2 class="OnRails" wheelBase=16 opaque pz=-61 scale=1 />
+<element='/dt/md/rr/coupler/nobox.txt' class=coupler full attachTo=bogie1 pz=7 lever=13 />
+<element='/dt/md/rr/coupler/nobox.txt' class=coupler full attachTo=bogie2 pz=-7 lever=13 ay=180 />
+
+<element name=body attachTo=bogie2 headTo=bogie1 place2middle py=7 opaque hit>
+	<include='../body-common.txt'/>
+	<include='../doors.txt' pz=-26/>//-11/>
+	<include='lv1front67wnd4.txt' align=back pz=-22/>
+	<include='lv1back15wnd0.txt' align=front pz=-30/>
+	<include='lv2wnd11.txt'/>
+	<include='body-roof.txt'/>
+	//interior
+	<group>//level 1
+		//right row
+		<include='../inside-chair.txt' px=4 pz=32 ay=135/>
+		<include='../inside-chair.txt' px=4 pz=24 ay=86/>
+		<include='../inside-chair.txt' px=4 pz=16 ay=67/>
+		<include='../inside-chair.txt' px=4 pz=8 ay=56/>
+		<include='../inside-chair.txt' px=4 pz=0 ay=86/>
+		<include='../inside-chair.txt' px=4 pz=-8 ay=135/>
+		<include='../inside-chair.txt' px=4 pz=-16 ay=120/>
+		//left row
+		<include='../inside-chair.txt' px=-4 pz=32 ay=-110/>
+		<include='../inside-chair.txt' px=-4 pz=24 ay=-108/>
+		<include='../inside-chair.txt' px=-4 pz=16 ay=-118/>
+		<include='../inside-chair.txt' px=-4 pz=8 ay=-74/>
+		<include='../inside-chair.txt' px=-4 pz=0 ay=-135/>
+		<include='../inside-chair.txt' px=-4 pz=-8 ay=-76/>
+		<include='../inside-chair.txt' px=-4 pz=-16 ay=-64/>
+	</group py=-5>//level 1
+	<group>//level 2
+		//right row
+		<include='../inside-chair.txt' px=4 pz=64 ay=90/>
+		<include='../inside-chair.txt' px=4 pz=56 ay=80/>
+		<include='../inside-chair.txt' px=4 pz=48 ay=71/>
+		<include='../inside-chair.txt' px=4 pz=40 ay=121/>
+		<include='../inside-chair.txt' px=4 pz=32 ay=55/>
+		<include='../inside-chair.txt' px=4 pz=24 ay=46/>
+		<include='../inside-chair.txt' px=4 pz=16 ay=75/>
+		<include='../inside-chair.txt' px=4 pz=8 ay=58/>
+		<include='../inside-chair.txt' px=4 pz=0 ay=52/>
+		<include='../inside-chair.txt' px=4 pz=-8 ay=52/>
+		<include='../inside-chair.txt' px=4 pz=-16 ay=120/>
+		<include='../inside-chair.txt' px=4 pz=-24 ay=109/>
+		<include='../inside-chair.txt' px=4 pz=-32 ay=53/>
+		<include='../inside-chair.txt' px=4 pz=-40 ay=62/>
+		<include='../inside-chair.txt' px=4 pz=-48 ay=51/>
+		<include='../inside-chair.txt' px=4 pz=-56 ay=84/>
+		<include='../inside-chair.txt' px=4 pz=-64 ay=95/>
+		//left row
+		<include='../inside-chair.txt' px=-4 pz=64 ay=-130/>
+		<include='../inside-chair.txt' px=-4 pz=56 ay=-120/>
+		<include='../inside-chair.txt' px=-4 pz=48 ay=-117/>
+		<include='../inside-chair.txt' px=-4 pz=40 ay=-92/>
+		<include='../inside-chair.txt' px=-4 pz=32 ay=-52/>
+		<include='../inside-chair.txt' px=-4 pz=24 ay=-126/>
+		<include='../inside-chair.txt' px=-4 pz=16 ay=-133/>
+		<include='../inside-chair.txt' px=-4 pz=8 ay=-103/>
+		<include='../inside-chair.txt' px=-4 pz=0 ay=-135/>
+		<include='../inside-chair.txt' px=-4 pz=-8 ay=-86/>
+		<include='../inside-chair.txt' px=-4 pz=-16 ay=-67/>
+		<include='../inside-chair.txt' px=-4 pz=-24 ay=-56/>
+		<include='../inside-chair.txt' px=-4 pz=-32 ay=-86/>
+		<include='../inside-chair.txt' px=-4 pz=-40 ay=-135/>
+		<include='../inside-chair.txt' px=-4 pz=-48 ay=-100/>
+		<include='../inside-chair.txt' px=-4 pz=-56 ay=-120/>
+		<include='../inside-chair.txt' px=-4 pz=-64 ay=-121/>
+	</group py=10>//level 2
+</element>
+
+<element='../frontwall.txt' attachTo=body pz=80 hit/>
+<element='../frontwall.txt' attachTo=body pz=-80 ay=180 hit/>
+
+<mt_save_as=prints mt_use=metal/>
+<for_element=body>
+	<texture_as=stripes src='../stripes.bmp' ckey=#00ff00 glRepeat=GL_REPEAT/>
+	<mt_use=prints uTex0_use=stripes sticker/>
+	<box='18.1,1,160'/>
+	<a='left,right' xywh='0.5,12,0,4' l=102 py=0.3 align=front pz=80/>
+	<a='left,right' xywh='0.5,12,0,4' l=50 py=0.3 align=back pz=-80/>
+	<a='left,right' xywh='0.5,0,0,12' h=3 py=10.5/>
+
+	<mt_use=prints uTex1mask_src='../superliner.bmp' uTex1alphaChannelN=0 uColor=#ffffff sticker/>
+	<box='18.1,1.5,9'/>
+	<a='left,right' xywh='0,0,128,25' py=9.8 align=back pz=-79/>
+	<a='left,right' xywh='0,0,128,25' py=9.8 align=front pz=79/>
+
+	<mt_use=prints uTex1mask_src='/dt/md/rr/us/label/amtrak01.bmp' uTex1alphaChannelN=0 uColor=#0000ff sticker/>
+	<box='18.1,6,12'/>
+	<a='left,right' xywh_GL='0,0,1,1' py=4 pz=39.5/>//-45/>
+	//number
+	<mt_use=prints uTex1mask_src='number.bmp' uTex1alphaChannelN=0 uColor=#0000ff sticker/>
+	<box='18.1,2.5,10'/>
+	<a='left,right' xywh='0,0,64,16' py=13.5  pz=75.4/>
+	<a='left,right' xywh='0,0,64,16' py=13.5 pz=-75.4/>
+	//sleeping car
+	<mt_use=prints uTex1mask_src='lounge.bmp' uTex1alphaChannelN=0 uColor=#0000ff sticker/>
+	<box='18.1.8,2,10'/>
+	<a='left,right' xywh='0,0,64,12' py=1.8 pz=-35.5/>
+</for_element>
+

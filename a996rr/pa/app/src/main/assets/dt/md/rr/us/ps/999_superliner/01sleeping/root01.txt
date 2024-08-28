@@ -1,0 +1,80 @@
+<model="84' Superliner II coach" yearFrom=1991 />
+
+<include='/dt/mt/materials.txt'/>
+
+<mt_save_as=bogie mt_use=dark-silver/>
+<mt_save_as=bogie-lid mt_use=rust/>
+<mt_save_as=wheel_main mt_use=rust />
+
+<mt_save_as=body mt_use=silver/>
+<mt_save_as=roof mt_use=dark-silver/>
+<mt_save_as=handle mt_use=body 4wire lineWidth=0.3/>
+<mt_save_as=windows mt_use=glass-tintBrown uAlphaFactor=0.2 noStickers forElement=glass/>
+<mt_save_as=inside-walls mt_use=matte uColor=#555555 noStickers uTex2nm=-1 forElement=inside/>
+<mt_save_as=inside mt_use=matte uColor=#dddddd noStickers uTex2nm=-1 forElement=inside/>
+
+<texture_as=nm1x4rib src='/dt/md/parts/grill/nm1x4rib-soft.bmp' glRepeat=GL_REPEAT/>
+
+<element='/dt/md/rr/bogie/98us_superliner/bogie00.txt' name=bogie1 class="OnRails" wheelBase=16 opaque pz=61 scale=1 />
+<element='/dt/md/rr/bogie/98us_superliner/bogie00.txt' name=bogie2 class="OnRails" wheelBase=16 opaque pz=-61 scale=1 />
+<element='/dt/md/rr/coupler/nobox.txt' class=coupler full attachTo=bogie1 pz=7 lever=13 />
+<element='/dt/md/rr/coupler/nobox.txt' class=coupler full attachTo=bogie2 pz=-7 lever=13 ay=180 />
+
+<element name=body attachTo=bogie2 headTo=bogie1 place2middle py=7 opaque hit>
+	<include='../body-common.txt'/>
+	<include='../doors.txt' pz=-11/>
+	<include='../lv1front52wnd3.txt' align=back pz=-7/>
+	<include='../lv1back30wnd1.txt' align=front pz=-15/>
+	<include='../lv2wnd11.txt'/>
+	<include='../body-roof.txt'/>
+	//interior
+	<group>//level 1
+		<include='../roomette12.txt' pz=26/>
+		<include='../roomette12.txt' pz=13/>
+	</group py=-5>//level 1
+	<group>//level 2
+		<include='../roomette12.txt' pz=-65 />
+		<include='../roomette12.txt' pz=-52/>
+		<include='../roomette12.txt' pz=-39/>
+		<include='../roomette12.txt' pz=-26/>
+		<include='../roomette12.txt' pz=-13/>
+		<include='../roomette12.txt' pz=0/>
+		<include='../roomette12.txt' pz=13/>
+		<include='../roomette12.txt' pz=26/>
+		<include='../roomette12.txt' pz=39/>
+		<include='../roomette12.txt' pz=52/>
+		<include='../roomette12.txt' pz=65/>
+	</group py=10>//level 2
+</element>
+
+<element='../frontwall.txt' attachTo=body pz=80/>
+<element='../frontwall.txt' attachTo=body pz=-80 ay=180/>
+
+
+<for_element=body>
+	<texture_as=stripes src='../stripes.bmp' ckey=#00ff00 glRepeat=GL_REPEAT/>
+	<mt_use=satin uTex0_use=stripes sticker/>
+	<box='18.1,1,160'/>
+	<a='left,right' xywh='0.5,12,0,4' l=87 py=0.3 align=front pz=80/>
+	<a='left,right' xywh='0.5,12,0,4' l=65 py=0.3 align=back pz=-80/>
+	<a='left,right' xywh='0.5,0,0,12' h=4 py=11/>
+
+	<mt_use=satin uTex1mask_src='../superliner.bmp' uTex1alphaChannelN=0 uColor=#ffffff sticker/>
+	<box='18.1,1.7,10'/>
+	<a='left,right' xywh='0,0,128,25' py=10.1 align=back pz=-79/>
+	<a='left,right' xywh='0,0,128,25' py=10.1 align=front pz=79/>
+
+	<mt_use=satin uTex1mask_src='/dt/md/rr/us/label/amtrak01.bmp' uTex1alphaChannelN=0 uColor=#0000ff sticker/>
+	<box='18.1,5,10'/>
+	<a='left,right' xywh_GL='0,0,1,1' py=2.7 pz=2/>
+	//number
+	<mt_use=satin uTex1mask_src='number.bmp' uTex1alphaChannelN=0 uColor=#0000ff sticker/>
+	<box='18.1,2,6'/>
+	<a='left,right' xywh='0,0,64,16' py=14.5  pz=76/>
+	<a='left,right' xywh='0,0,64,16' py=14.5 pz=-76/>
+	//sleeping car
+	<mt_use=satin uTex1mask_src='sleeping.bmp' uTex1alphaChannelN=0 uColor=#0000ff sticker/>
+	<box='18.1,0.8,4'/>
+	<a='left,right' xywh='0,0,64,11' py=1.3 pz=-4/>
+</for_element>
+

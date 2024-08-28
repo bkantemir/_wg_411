@@ -1,0 +1,440 @@
+<include='/dt/mt/materials.txt'/>
+
+<texture_as=body01 src=body01.bmp ckey=#00ff00/>
+<texture_as=rivets8 src='/dt/md/parts/rivets/rivets8.bmp' glRepeat=GL_REPEAT/>
+
+<color_as=body uColor=#0000ff/>
+<mt_save_as=body mt_use=teflon uColor_use=body />
+<mt_save_as=cabin-body mt_use=body />
+<mt_save_as=cabin-nose mt_use=cabin-body />
+
+<color_as=roof uColor=#111111/>
+<mt_save_as=roof mt_use=teflon uColor_use=roof/>
+<color_as=front-side-ribs uColor=#ff0000/>
+<mt_save_as=front-side-ribs mt_use=tin uColor_use=front-side-ribs/>
+
+<mt_save_as=outline-top mt_use=body uColor=#ffffff/>
+<mt_save_as=outline-base mt_use=body uColor=#ffff00/>
+
+<mt_save_as=handle mt_use=metal-wire lineWidth=0.3 />//uAlphaFactor=1 uAlphaBlending=0 />
+
+<element name=cabin attachTo=body hit pz=46 py=8>
+	<mt_use=body/>
+	<group>//cabin
+			<group> //bottom outliner
+				<vs=box-tank whl='12,2,16' extF=2.5 extX=3 sectR=1  />
+				<a='left,right,front all' mt_use=outline-base xywh_GL='0.5,0,0,1' side=',black'/>
+				//<a='top all noMrow' extU=0.5 mt_use=body uColor=#111111/>
+				<a='top all noMrow' extU=0.5 mt_type=phong uSpecularIntencity=0 uColor=#111111/>
+			</group align='bottom back'> //bottom outliner
+			<group> //round (main) cabin part
+				<group>//side walls
+					<group> //top white outliner
+						<box='18,1,21' sectZ=7/>
+						<a='left,right' align=back mt_use=outline-top xywh_GL='0.5,0,0,1' side=',black'/>
+						//lower body-color part (end of white outline)
+						<a='left,right' length=6 sectZ=2 align=back pz=21 mt_use=body />
+					</group align='bottom' py=14> //top white outliner
+					<group> //main wall
+						<mt_use=cabin-body/>
+						<box='18,14,27' sectZ=9/>
+						<a='left,right' mark='cabin-side' nm=body01/>
+						<a='left,right' side=in mt_use=black-nm mark='cabin-side' nm=body01/>
+						//inner black
+						<a='front all,back all' side=in mt_use=black dontMerge/>
+					</group align='bottom back'> //main wall
+				</group>//side walls
+				<group mark='cabin-front'>//front-top (roof-windshield section)
+					<group>//front side ribs
+						<vs=box-tank whl='12,0,27' extU=2 extX=3 sectR=3 sectX=6 sectZ=9 />
+						<a='top all noMid' mt_use=front-side-ribs length=21 sectZ=7 align=back side=',black'/>
+						//lower body-color section
+						<a='top all noMid' mt_use=cabin-nose length=6 sectZ=2 align=back pz=21 mark='nose' />
+					</group >//front side ribs
+					
+					<group>// roof top section
+						<mt_save_as=cabin-roof mt_use=roof/>
+						<mt_use=cabin-roof/>
+						<box='12,0,27' sectR=3 sectX=6 sectZ=9 />
+						//roof top depressed
+						<a='front,back,left,right,bottom' side=in height=1 length=6 sectZ=2 dontMerge align='top back' >//roof top depressed
+						<group> //chrome lid
+							<mt_use=top-lids >
+								<box='8,1,4'>
+									<a='top,left,right,front,back' dontMerge/>
+								</box>
+								<do sizeD='-1,0,-1' applyTo=top/>
+								<a='top,left,right,front' box='1,1,1' dontMerge pxyz='-2.7,-0.1,2'/>
+								<a='top,left,back,front' box='1.6,1,1.6' dontMerge pxyz='-3.8,-0.1,-0.7'/>
+							</mt_use>
+						</group align='top back' px=0.3 pz=1 > //chrome lid
+						<group>//top round lid
+							<line mt_use=handle noShadow>
+								<ring whl='2,2,0' sectR=8/>
+							</line>//top round lid
+						</group ax=90 pxyz='2.2,0.15,3'>
+						<group>//roof front
+							<mt_use=cabin-roof/>
+							<a=top length=6 sectZ=2 />
+							<mt_adjust uTex2nm_use=body01 noShadow uAlphaBlending>//mt_use=gloss >//uColor=#ff0000>
+								<a2mesh wh='5,5' xywh2nm='1,1,20,20' onThe=top  py=-1 detachBy=0.1 />
+							</mt_adjust>
+						</group align=back pz=6>//roof front
+						<group>//windshield
+							<element attachTo=cabin name=cabin-glass>
+								<a=top length=12 sectZ=4 mt_use=glass-plain uAlphaFactor=0.5 noShadow/>//mt_tye=flat uColor=#ff0000/>//
+							</element>
+						</group align=back pz=12>//windshield
+						<group>//windshield mid splitter
+							<mt_use=teflon uColor=#111111 4wire lineWidth=0.7 noShadow />//uColor=#ff0000>
+							<line >//uColor=#ff0000>
+								<p pxyz='0,0,0'/>
+								<p dz=6 sectN=2/>
+							</line>
+							
+							<line >//uColor=#ff0000>
+								<p pxyz='-6,0,6.2'/>
+								<p px=-3/>
+								<p dz=-0.5 sectN=2/>
+								<p px=3 sectN=2/>
+								<p dz=0.5 sectN=2/>
+								<p px=6 />								
+							</line>
+							<line >//uColor=#ffffff >
+								<p pxyz='-3,0,6' /> //top left point
+								<p dz=2.5 dx=1 r=0.3/>
+								<p px=2 sectN=4 r=0.3 />
+								<p dz=-2.5 dx=1 />
+							</line>
+						</group align=back py=0.5 pz=11.8>//windshield mid splitter
+						
+						<group>//upper headlights object
+							<element class=DirLight name=lt1 attachTo=cabin />
+							<mt_type=flat uTex0_src=headlights2.bmp noShadow/>
+							<box='3,0,1.8' sectR=2>
+								<element attachTo=lt1>
+									<a=top xywh='0,16,32,16' py=-0.4/>
+								</element>
+								<element attachTo=lt1 >
+									<a=top xywh='0,0,32,16' py=0.4/>
+								</element>
+							</box>
+						</group align=back pz=17.9 >//upper headlights object
+						
+									
+						<group> //top front numbers
+							<mt_save_as=lighted-number mt_type=flat uTex1mask_src='01amtrak300blue/number.bmp' uTex1alphaChannelN=0 sticker/>
+							<element class=DirLight name=lt1 onPower attachTo=cabin />
+							<box='3.6,0,1.5' sectX=2>
+								<element attachTo=lt1 opaque>
+									<mt_use=lighted-number uColor=#666666/>
+									<group>
+										<a=top px=3.5 xywh_GL='0,0,1,1' flip=180 />
+										<a=top px=-3.5 xywh_GL='0,0,1,1' flip=180 />
+									</group py=-0.1>
+								</element>
+								<element attachTo=lt1 opaque >
+									<mt_use=lighted-number uColor=#FFcc22 />//uAlphaBlending=0 />
+									<group>
+										<a=top px=3.5 xywh_GL='0,0,1,1' flip=180 />//zBufferUpdate/>
+										<a=top px=-3.5 xywh_GL='0,0,1,1' flip=180 />//zBufferUpdate/>
+									</group py=-0.1>
+								</element>
+							</box>
+						</group align=back pz=12.3> //top front numbers
+
+						<group mark='nose'>//nose
+							<mt_use=cabin-nose />
+							<group>
+								<a=top length=3 sectZ=1 />
+							</group align=back >
+						</group align=back pz=24>//nose
+						
+					</group py=2>// roof top section
+					
+				</group py=15>//front-top (roof-windshield section)
+				<do sizeD='-2,0,0' applyTo=front toX=-0.1 refPoint='-9,0,0'/>
+				<do sizeD='-2,0,0' applyTo=front fromX=0.1 refPoint='9,0,0'/>
+				<do scale='1,0,1' applyTo=front fromY=8.5 refPoint='0,15,0'/>
+				<do py=3 applyTo='midX front 1-pow2'/>
+				<do py=-1 applyTo='front only' fromY=1/>
+				<bend='z2pitch' angRange='0,90'/>
+				
+				<mt_use=body nm=body01/> //for tex size reference
+				<a2group=right all markedAs=cabin-side xywh2nm='1,22,68,60' />
+				<for_element=cabin-glass>
+					<group>
+						<box='17.9,5,9'/>
+						//<mt_type=flat uColor=#ffff00 uAlphaFactor=0.5/>
+						<mt_use=glass-plain uAlphaFactor=0.5 noShadow/>
+						<a='left,right' sectY=2/>
+						<do pz=-3 applyTo='front top only'/>
+					</group py=9.5 pz=6.5>
+				</for_element>
+				<group>//right handles
+					<group>//right-right handle
+						<line mt_use=handle >//uColor=#ffffff>
+							<group>//top
+								<p py=5/>
+								<p dx=1 r=0.5/>
+							</group pz=-2.7>
+							<clone=reflectY/>
+						</line>
+					</group px=9 py=6.2>//right-right handle
+					<clone=reflectZ/>
+				</group pz=4.15>//right handles
+				<clone=reflectX/>
+				<group>//right door handles
+					<group>//upper handle
+						<line mt_use=handle >
+							<p pxyz='0,0,0'/>
+							<p dx=0.6 r=0.3/>
+							<p dz=-1.3 />
+						</line>
+					</group pxyz='9,6.4,5.5>//upper handle
+					<clone py=-2.5/>
+				</group>//right door handles
+				<clone=reflectX/>
+
+				<group>//right door
+					<mt_use=black lineWidth=0.2 uAlphaFactor=0.5 noShadow/>
+					<ln_square whl='4,9.5,0.2' r=0.7/>
+				</group ay=90 pxyz='9,7.3,4.1'>//right door
+				<clone=reflectX/>
+				
+				<group> //right mirror
+					<mt_use=handle />//uColor="#ffffff" />
+					<line>
+						<group>
+							<p pxyz='0,2,0' />
+							<p dx=1 r=0.3/>
+						</group>
+						<clone=reflectY />
+					</line>
+					<group>//mirror body
+						<vs=box-tank whl='0,2,0' ext=0.8 extB=0 rxtF=0.4 sectR=2/>
+						<a='front all' mt_use=chrome/>
+						<do='calc merge normals'/>
+						//mirror surface
+						<a='back all' mt_type=mirror uTex0_src='/dt/mt/wn64_256.bmp' uTex0translateChannelN=4 uColor1="#111111" uColor2="#aaaabb" uAmbient=1 uSpecularIntencity = 0 />
+					</group ay=10 px=1 pz=-0.3>//mirror body
+				</group pxyz='9,9.0,9.2' > //right mirror
+				<clone=reflectX />
+
+				
+				<do sizeD='0,0,2' applyTo=front/>
+
+			</group py=2> //round (main) cabin part
+			<do sizeD='-4,0,0' applyTo=front/>
+			<do='calc merge normals'/>
+			<group>//top headlights pannel
+				<box='11,8,2'/>
+				<mt_use=gloss uColor=#111111 noShadow />//uColor=#00ff00/>
+				<a='top' />
+				
+				<a='front' />//uColor=#00ff00/>
+				
+				<do align='top front'/>
+				<do pz=2 applyTo='front bottom'/>
+				<do py=0.3 applyTo='back only'/>
+			</group  py=10 pz=14.4>//top headlights pannel
+			
+			<group> //light pannel	
+				<element class=DirLight name=lt1 onPower attachTo=cabin />
+				<box='7,1.5,0'/>
+				<element attachTo=lt1>
+					<a=front mt_type=flat uColor=#555544/>
+				</element>
+				<element attachTo=lt1>
+					<a=front mt_type=flat uTex0_src=headlights3.bmp xywh_GL='0,0,7,1'/>
+				</element>
+			</group pxyz='0,6.5,18'>
+			
+			<group>//top numbers pannel
+				<box='12,2,0'/>
+				<mt_use=roof />//uColor=#00ff00/>
+				<a='front' />
+				
+				<group>//bottom line
+					<line mt_use=matte-wire uColor=#444444 lineWidth=0.2 noShadow >//uColor=#ff0000>
+						<short p0='-6,0,0' dx=12 />
+					</line>
+				</group pz=0.1 py=-1.1>//bottom line
+				
+				<do pz=1.5 applyTo='bottom'/>				
+			</group align=top py=15 pz=11>//top numbers pannel
+			
+			<group>//wipers
+				<group>//left wiper
+					<vs=cap whl='1,1,0.5' sectR=6 sectZ=1 noShadow/>
+					<a=front mt_use=roof />
+					<mt_use=teflon uColor=#111111 4wire lineWidth=0.3 noShadow />					<line>
+						<p pxyz='0.8,4,0.1'/>
+						<p py=2 px=1.2 sectN=2/>
+					</line>
+					<line>
+						<p pxyz='1,3,0.1'/>
+						<p pz=0.7 r=0.1/>
+						<p px=0 py=0 sectN=2 r=0.2/>
+						<p pz=0.3/>
+					</line>
+				</group px=-3.5>//left wiper
+				<clone px=7/>
+				<z2mesh all markedAs=cabin-front onThe=front py=10 detachBy=0.05 />
+				<do='calc merge normals'/>
+			</group>//wipers
+			
+			//lamps
+			<group>//left front lamp				
+				<mt_use=metal-wire lineWidth=0.2 noShadow/>
+				<group>//dir light
+					<vs=cylinder whl='1.3,1.3,2' sectR=10 />
+					<a=wrap mt_use=cabin-nose align=front px=-0.1 />
+					<do scale='1.5,1.5,1' applyTo=back/>
+					<do='calc merge normals'/>
+					<line>
+						<ring whl='1.5,1.8,0' sectR=10 />
+					</line>
+				</group  pxyz='-6.5,6.3,18.2'>
+				<group>//reverse light
+					<vs=cylinder whl='1.1,1.1,2' sectR=10 />
+					<a=wrap mt_use=cabin-nose align=front px=-0.1 />
+					<do scale='1.5,1.5,1' applyTo=back/>
+					<do='calc merge normals'/>
+					<line>
+						<ring whl='1.3,1.3,0' sectR=10 />
+					</line>
+				</group  pxyz='-6,4.5,18.5'>
+			</group >//left front lamp
+			<clone=reflect xyz='1,0,0'/>
+			
+	</group align=bottom >//cabin
+	
+	<group>//cowcatcher
+		<group>//cowcatcher right half
+			<mt_use=gunmetal/>
+			<vs=box-tank whl='5,2,0' extF=2 extR=2 sectR=2 sectY=2/>
+			<a='front all' align=top /> 
+			<group>//mid part with hole
+				<a='right h' side=',black'/>
+				<a=front mt_use=black />
+			</group align=top py=-2>//mid part with hole
+			<group>//lower part
+				<a='front all' side=',black' />
+			</group align=top py=-4>//lower part
+			<group>//chrome apron
+				<a=front mt_use=chrome height=1 uTex2nm_use=rivets8 xywh2nm='-3,-2,32,8'/>
+			</group align=top py=-6 >
+			<do pz=2 applyTo=left/>
+			<do pz=1.5 applyTo=bottom/>
+			<do pz=-1 applyTo='midY 1-pow2'/>
+			<do='calc merge normals'/>
+		</group align=left>//cowcatcher right half
+		<clone=reflect xyz='1,0,0'/>
+	</group pz=15>//cowcatcher
+	
+	<group>//wire hubs
+		<group>//right wire hub
+			<mt_use=cabin-nose/>
+			<box='5,3,1.5' />
+			<a='left,right,front,back,top' align=front/>
+			<line mt_use=handle>
+				<p pxyz='2.5,-0.5,-1'/>
+				<p dx=0.5 r=0.3/>
+				<p dy=-4/>
+			</line>
+			<line mt_use=handle>
+				<p pxyz='2,-1.5,-0.5'/>
+				<p dy=-1 dz=0.5 r=0.3/>
+				<p px=-2 r=0.3/>
+				<p dy=1 dz=-0.5/>
+			</line>
+			<group>//lids
+				<texture_as=lid8 src='/dt/md/parts/lids/lid8.bmp' ckey=#00ff00 />// 
+				<mt_use=gloss uTex2nm_use=lid8 uColor=#994444 noShadow/>
+				<box='1.2,1.3,0'/>
+				<a=front py=-0.6 px=-1.2 xywh2nm_GL='0,0,1,1' flip=180/>
+				<a=front py=-0.6 px=1.2 xywh2nm_GL='0,0,1,1' flip=180/>
+				<box='1.4,1.4,0'/>
+				<a=front py=0.6 px=0 uColor=#00aaee xywh2nm_GL='0,0,1,1'/>
+				<do px=-0.3/>
+			</group pz=0.1>
+			<group>//orange light
+				<vs=cap whl='1,1,0.5' sectR=6 sectZ=2/>
+				//<box='1,1,0.2'/>
+				<mt_use=cabochon uColor=#ff9900 />//
+				<a=front />
+			</group px=1.7 py=0.8 pz=0>//orange light
+			<do pz=-1 applyTo=right/>
+			<do='calc merge normals'/>
+		</group ax=5 px=5>//right wire hub
+		<clone=reflect xyz='1,0,0'/>
+		<line mt_use=handle> //middle handle
+			<group>
+				<p pxyz='2,1.5,0.2'/>
+				<p dy=-3 r=0.3/>
+				<p dx=1 dy=1 dz=-0.5 r=0.3/>
+			</group >
+			<clone=reflect xyz='1,0,0'/>
+		</line>
+		<tip=start />
+		<tip=end />
+	</group py=1 pz=19.2>//wire hubs
+	
+	<group>//right lower steps
+		<mt_use=gunmetal 4wire lineWidth=0.4 />//uColor=#ff0000>
+		<line >
+			<p pxyz='0,0,-1.5'/>
+			<p dy=-5 r=0.3/>
+			<p dz=3 r=0.3/>
+			<p py=0 />
+		</line>
+		<short p0='0,-2.5,-1.5' dz=3/>
+	</group pxyz='8,0,4.2'>//right lower steps
+	<clone=reflectX/>
+	
+	<group>//underneath front box
+		<mt_use=gunmetal/>
+		//<mt_type=phong uColor=#ff0000/>
+		<box='15,2,5'/>
+		<a='left,right,front,back' align=top/>//top section
+		<group>//2 lower sections
+			<a='left,right,front,back' align=top/>//mid section
+			<a='left,right,front,back' sectZ=2 align=top py=-2/>//bottom section
+			<do scale='1,1,0.4' applyTo='bottom only'/>
+			<do sizeD='-4,0,0' applyTo='bottom'/>
+		</group py=-2>//2 lower sections
+		<do='calc normals'/>
+		<group>//right brackets
+			<mt_use=handle lineWidth=0.2/>
+			<group>//front bracket
+				<line>
+					<p pxyz='0,0,0'/>
+					<p dy=0.5 r=0.2/>
+					<p dz=1.5 r=0.2/>
+					<p dy=-0.5/>
+				</line>
+			</group pxyz='7.7,-1.5,0.5'>//front bracket
+			<clone=reflectZ/>
+		</group>//right brackets
+		<clone=reflectX/>
+	</group pz=11>//underneath front box
+	
+	//flash lights
+	<group>
+		<line mt_use=cabin-roof 4wire lineWidth=0.2 noShadow>
+			<ring whl='1.4,1.4,0' sectR=8/>
+		</line>
+		//<include='/dt/md/cross3.txt' scale=10/>
+	</group ax=-70 ay=40 pxyz='4.5,18.1,7.5'>
+	<clone=reflectX/>
+</element>
+
+<element='/dt/md/parts/light/dir02round_white.txt' class=DirLight attachTo=cabin scale=1.2  ax=-70 ay=40 pxyz='4.5,18.2,7.5' onMove blink=14 flash/>
+<element='/dt/md/parts/light/dir02round_orange.txt' class=DirLight attachTo=cabin scale=1.2  ax=-70 ay=-40 pxyz='-4.5,18.2,7.5' onMove blink=13 flash/>
+
+<element='/dt/md/parts/light/dir02round_white.txt' class=DirLight attachTo=cabin scale=1.3 pxyz='-6.5,6.3,18' onMove forward blink=15/>
+<element='/dt/md/parts/light/dir02round_red.txt' class=DirLight attachTo=cabin scale=1.1 pxyz='-6,4.5,18.3' reverse/>
+			
+<element='/dt/md/parts/light/dir02round_white.txt' class=DirLight attachTo=cabin scale=1.3 pxyz='6.5,6.3,18' onMove forward blink=15/>
+<element='/dt/md/parts/light/dir02round_red.txt' class=DirLight attachTo=cabin scale=1.1 pxyz='6,4.5,18.3' reverse/>

@@ -1,0 +1,35 @@
+				<group>//walls body-mid-fishtank
+					<box='0,14,24'>
+						<group>//right - 
+							<a=right length=1 align=front pz=12/>
+							<a=right height=2.5 length=5 align='front top' pz=11 py=7/>
+							<a=right height=2.5 length=5 align='front bottom' pz=11 py=-7/>
+							<group> //right front window
+								<vs=box-tank whl='0,9,5' ext=-1 extX=0 sectR=1>
+									<a='right outcorners'/>
+								</vs>
+							</group align=front pz=11> //right front window
+							<a=right length=2 align=front pz=6/>
+							<a=right height=1 length=15 align='front top' pz=4 py=7/>
+							<a=right height=1 length=15 align='front bottom' pz=4 py=-7/>
+							<group> //right back big window
+								<vs=box-tank whl='0,12,15' extY=-2 extZ=-3 sectR=1>
+									<a='right outcorners'/>
+								</vs>
+								<group>//diag
+									<a=right box='0,10.3,2.5' py=0.5 pz=6.5 />//uColor=#ff0000 />
+									<do py=-0.9 applyTo=front/>
+									<do pz=-13 applyTo=bottom/>
+								</group>//diag
+								<clone=reflectZ/>
+							</group align=front pz=4> //right back big window						
+							<a=right length=1 align=front pz=-11 />
+							//slits
+							<box='0.1,14,0.5'>
+								<a=right nm=nm2x1slit xywh2nm_GL='0,0.5,1,0' pz=12/>
+								<a=right nm=nm2x1slit xywh2nm_GL='0,0.5,1,0' pz=-12/>
+							</box>
+						</group px=9>//right					
+						<clone=reflectX/>
+					</box>
+				</group>//walls body-mid-fishtank

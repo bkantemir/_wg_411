@@ -1,0 +1,114 @@
+<include='/dt/mt/materials.txt'/>
+
+//<texture_as=bogie2nm src='bogie01nm.bmp' ckey=#00ff00/>
+<mt_save_as=bogie mt_use=teflon uColor=#444444/>
+//<mt_save_as=bogie-lid mt_use=bogie />//uColor=#0000ff/>
+<mt_save_as=bogie-spring mt_use=bogie />
+
+<texture_as=spring01nm src='/dt/md/parts/grill/nm1x2spring.bmp' glRepeat=GL_REPEAT />
+
+<mt_use=bogie/>
+<group> //entire bogie
+	<group>//right side
+		<mt_use=bogie 4wire lineWidth=0.8/>
+		<line>
+			<group>
+				<p pxyz='9.5,-1,0'/>
+				<p py=2 r=0.8/>
+				<p dx=-4 r=0.8/>
+				<p dx=-3 dy=-1/>
+			</group>
+			<clone=reflectX/>
+		</line>
+		
+		<group>//main column
+			<mt_use=bogie/>
+			<box='2,2.5,1'/>
+			<a='top,front,left,right' />//uColor=#ff0000/>
+			<do sizeD='-1,0,0' applyTo=front/>
+			<do='calc merge normals'/>
+			<group>//left ear
+				<box='1.5,0.5,0.2'/>
+				<a='left,top,front' />// uColor=#00ff00/>
+			</group align='left front' px=0.5 pz=0.5>//left ear
+			<group> //vertical piston
+				<vs=cylinder whl='1,1,4' sectR=6/>
+				<a='wrap' />//uColor=#00ff00/>
+			</group align=back ax=-80 pxyz='1.5,0,-0.2' > //vertical piston
+			<group> //horisontal piston
+				<vs=cylinder whl='1,1,5' sectR=6/>
+				<a='front,back,wrap' />uColor=#00ff00/>
+			</group align=back ay=-85 pxyz='-0.3,0,1' > //horisontal piston
+			<group>//body holder
+				<mt_type=flat 4wire lineWidth=0.6 uColor=#dddddd/>
+				<short p0='0,0,0' py=4/>
+				<short p0='0,0,0' px=1/>
+				<short p0='0,1.5,0' px=-2 py=4/>
+			</group pxyz='-5.5,0,1.5'>//body holder
+			//thick pipe
+			<mt_use=bogie 4wire lineWidth=0.5 />//  uColor=#00ff00/>
+			<line>
+				<p pxyz='0,-0.6,0'/>
+				<p pz=1.5 r=0.6/>
+				<p dx=2 r=0.6/>
+				<p dz=-4 />
+			</line>
+		</group pxyz='2,-0.5,2.5'>//main column
+
+	</group ay=90 px=3 >//right side
+	<clone=reflectX/>
+
+	
+	<group>// right side brakes
+		<group>//front brake
+			<mt_use=black lineWidth=1/>
+			<line>
+				<p pxyz='0,2,0'/>
+				<p pxyz='0,0,-1' r=1/>
+				<p pxyz='0,-2,0'/>
+			</line>
+			<group>//brake box
+				<mt_use=bogie/>
+				<box='0.6,3,3'/>
+				<a='top,back,right' />//uColor=#ff0000 />
+				<do sizeD='0,-1,0' applyTo=back/>
+				<do='calc normals'/>
+			</group align='front right' px=-0.3 >//brake box			
+		</group pz=5.2>//front brake
+		<clone=reflectZ/>
+	</group px=5>//right side brakes
+	<clone=reflectX/>
+	
+	//car holder
+	<mt_use=bogie box='13,1,2' py=0.5/>
+	<a='top,front,back'/>
+	<group>
+		<group>
+			<vs=cylinder whl='3,3,3' sectR=8/>
+			<a=wrap mt_use=bogie-spring  uTex2nm_use=spring01nm  xywh2nm_GL='0.5,0,0,4'/>
+		</group headZto=y align=bottom px=5 py=1 >//car holder
+		<group> //spring base
+			<vs=cylinder whl='3.6,3.6,0.6' sectR=8/>
+			<a='front,wrap' mt_use=bogie/>
+		</group headZto=y align=top px=5 py=1 >//base
+	</group  >//car holder
+	<clone=reflectX/>
+	
+	<group>//thin pipe
+		<mt_use=bogie 4wire lineWidth=0.5 />//uColor=#ff0000/>
+		<line>
+			<group>
+				<p pxyz='5.5,1,3.5'/>
+				<p py=-2.3 r=0.6/>
+			</group>
+			<clone=reflectZ/>
+		</line>
+	</group  >//thin pipe
+	<clone=reflectX/>
+
+</group py=3.0> //entire bogie
+
+<element='/dt/md/rr/wheel/w01d6.txt' class=WheelPair pz=8 py=3 opaque/>
+<element='/dt/md/rr/wheel/w01d6.txt' class=WheelPair pz=-8 py=3 opaque/>
+
+

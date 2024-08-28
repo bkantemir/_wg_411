@@ -1,0 +1,3 @@
+	<include=frame11.txt/>
+	<a=right box='0,6,2' mt_use=body side=',inside-walls' pz=-6.5/>
+	

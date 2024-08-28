@@ -1,0 +1,73 @@
+<model="Siemens ALC-42 Charger Amtrak" yearFrom=2015 />
+
+<include='/dt/mt/materials.txt'/>
+
+<color_as=body uColor=#0000ff/>
+<mt_save_as=body mt_use=teflon uColor_use=body/>
+<color_as=roof uColor=#222222/>
+<mt_save_as=roof mt_use=teflon uColor_use=roof/>
+<color_as=front-side-ribs uColor=#ff0000/>
+<mt_save_as=front-side-ribs mt_use=metallic uColor_use=front-side-ribs/>
+
+<mt_save_as=outline-top mt_use=body uColor=#eeeeff/>
+//<mt_save_as=outline-top mt_use=body uTex0_src='outline-top.bmp'/>
+<mt_save_as=outline-base mt_use=body uTex0_src='outline-base.bmp'/>
+
+<mt_save_as=lighted-number mt_type=flat uTex1mask_src=number.bmp uTex1alphaChannelN=0 sticker/>
+
+<mt_save_as=back-wall mt_use=chrome />
+
+
+<include='../root00.txt' />
+//<include='../root01test.txt' />
+
+
+<for_element=cabin>
+	//front logo
+	<mt_use=satin uColor=#ffffff uTex1mask_src='../amtrak01.bmp' uTex1alphaChannelN=0 uAlphaFactor=0.9 uAmbient=0.5 sticker />
+	<a2mesh wh='6,3' xywh_GL='0,0,1,1' all markedAs=nose onThe=front detachBy=0.05 py=5.2 px=0.2/>
+	
+	<group>//white front line
+		<mt_use=outline-top sticker uAlphaFactor=0.85/>
+		<box='16,0.6,0' sectX=12/>
+		<a=front xywh='0.5,0,0,2'/>
+		<do scale='1,0.1,1' py=-1.5 applyTo='midX pow2' fromX=-6 toX=6/>
+		<do py=1.5 applyTo='midX 1-pow2'/>
+		<mesh2mesh all markedAs=cabin-front onThe=front py=7.2 detachBy=0.05 />
+		<do='calc merge normals'/>
+	</group pz=0>//align=front pz=20>//white front line
+</for_element>
+
+<for_element=body>
+	//side logo
+	<mt_use=satin uColor=#ffffff uTex1mask_src='../amtrak01.bmp' uTex1alphaChannelN=0 uAlphaFactor=0.8 uAmbient=0.5 sticker />
+	<a2mesh wh='24,12' xywh_GL='0,0,1,1' all markedAs=body-front-blank onThe=right detachBy=0.05 py=16.5 px=-9/>
+	<a2mesh wh='24,12' xywh_GL='0,0,1,1' all markedAs=body-front-blank onThe=left detachBy=0.05 py=16.5 px=9/>
+	//number 300
+	<mt_use=satin uColor=#ffffff uTex1mask_src='number.bmp' uTex1alphaChannelN=0 uAlphaFactor=0.8 uAmbient=0.5 sticker />
+	<a2mesh wh='10,5' xywh_GL='0,0,1,1' all markedAs=body-front-blank onThe=right detachBy=0.05 py=14 px=-40/>
+	<a2mesh wh='10,5' xywh_GL='0,0,1,1' all markedAs=body-front-blank onThe=left detachBy=0.05 py=14 px=40/>
+</for_element>
+
+<for_element=bodyback>
+	<do=dontRender all markedAs=body-back />
+	<box='18,14,37' sectY=2/>
+	<group>
+		<a='left,right' mt_use=body length=23 align=front pz=37/>					
+		<a='left,right' mt_use=outline-top length=1 align=front pz=14/>					
+		<a='left,right' mt_use=front-side-ribs length=8 align=front pz=13/>					
+		<a='left,right' mt_use=back-wall length=5 align=front pz=5/>
+		<do pz=6 applyTo='midY only' fromZ=1 toZ=36/>
+	</group align='bottom back' py=2>
+	
+	//backwall
+	<mt_use=body uTex1mask_src='../amtrak01.bmp' uTex1alphaChannelN=0 sticker />// uAlphaFactor=0.8 uAmbient=0.5/>
+	<box='3.8,2.5,0.1'/>
+	<a=back py=8.5/>
+	<mt_use=body uTex1mask_src='number.bmp' uTex1alphaChannelN=0 sticker />// uAlphaFactor=0.8 uAmbient=0.5/>
+	<box='4,2,0.1'/>
+	<a=back px=6  py=15.5 />
+	<a=back px=-6 py=15.5 />
+	
+</for_element>
+

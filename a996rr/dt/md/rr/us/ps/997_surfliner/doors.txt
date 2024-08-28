@@ -1,0 +1,50 @@
+		<mt_use=body/>
+		<group>//doors group
+			<group>//right door
+				<vs=box-tank whl='1,14,10' extR=-1 extD=-5 sectR=1/>
+				<a='front,back' side=in/>
+				<a='front,back' mt_use=inside-walls/>
+				<group>//door
+					<box='0,14,10'/>
+					<a=right side=',inside-walls' h=1 align=bottom py=6 uTex2nm_use=rivets4 xywh2nm_GL='0,0,8,0.5'/>
+					<a=right side=',inside-walls' h=1 align=bottom py=5/>
+					<a=right side=',inside-walls' h=5 align=bottom py=-7/>
+					//doorstep
+					<mt_use=body 4wire lineWidth=0.3/>
+					<short p0='0.1,-7,-5' dz=10/>
+					<mt_use=body/>
+					<group>//windows row
+						<vs_adjust h=7/>
+						<a=right mt_use=windows h=8 l=10 px=-0.1 />
+						<a=right l=2 side=',inside-walls'/>
+						<a=right l=1 pz=4.5 side=',inside-walls'/>
+						<a=right l=1 pz=-4.5 side=',inside-walls'/>
+						<group>//window frame
+							<mt_use=window-frame/>
+							<ln_square wh='2.6,7.2' r=0.5/>
+						</group ay=90 px=0.1 pz=2.5>//frame
+						<clone=reflectZ/>
+					</group py=1.5>//windows row
+					<group>//door slit
+						<mt_use=black lineWidth=0.3 uAlphaFactor=0.5/>
+						<short p0='0.1,-7,0' dy=13/>
+						<short p0='0.1,6,-5' dz=10/>
+					</group >//door slit
+					
+					<group>//right handle
+						<mt_use=handle/>
+						<line>
+							<p pxyz='0,0,0'/>
+							<p dx=1 r=0.2/>
+							<p dy=-6 r=0.2/>
+							<p px=0/>
+						</line>
+					</group pxyz='1,5,5.6'>//right handle
+					<clone=reflectZ/>
+					
+				</group px=-0.5>//door
+			</group align='bottom left' px=8 py=-5>//right door
+			<clone=reflectX asis/>
+			//inside
+			<a='bottom,back' side=in mt_use=inside-walls box='16,14,10' py=2 />//uColor=#ff0000/>
+		</group>//doors group

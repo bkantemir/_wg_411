@@ -1,0 +1,13 @@
+		<mt_use=body/>
+		<group>//roof
+			<vs=cylinder whl='8,8,160' sectR=3/>
+			<a=wrap angleFromTo='0,90' px=5  uTex2nm_use=nm1x4rib xywh2nm_GL='0.5,0,0,8' flip2nm=90/>
+			<a='front,back' angleFromTo='0,90' px=5 />
+			<a=wrap angleFromTo='90,180' px=-5  uTex2nm_use=nm1x4rib xywh2nm_GL='0.5,0,0,8' flip2nm=90/>
+			<a='front,back' angleFromTo='90,180' px=-5/>
+			<box='10,4,160' mt_use=body />
+			<a='top' mt_use=roof py=2/>
+			<a='front,back' py=2/>
+			<do='calc merge normal'/>
+		</group py=20>//roof
+		

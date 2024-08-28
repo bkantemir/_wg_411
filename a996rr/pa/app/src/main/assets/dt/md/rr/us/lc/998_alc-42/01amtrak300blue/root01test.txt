@@ -1,0 +1,18 @@
+<model="Siemens ALC-42 Charger Amtrak" yearFrom=2015 />
+
+<include='/dt/mt/materials.txt'/>
+
+<color_as=body uColor=#0000ff/>
+<mt_save_as=body mt_use=teflon uColor_use=body/>
+<color_as=roof uColor=#111111/>
+<mt_save_as=roof mt_use=teflon uColor_use=roof/>
+<color_as=front-side-ribs uColor=#ff0000/>
+<mt_save_as=front-side-ribs mt_use=metallic uColor_use=front-side-ribs/>
+
+<mt_save_as=outline-top mt_use=body uColor=#ffffff/>
+<mt_save_as=outline-base mt_use=body uTex0_src='outline-base.bmp'/>
+
+<mt_save_as=lighted-number mt_type=flat uTex1mask_src=number.bmp uTex1alphaChannelN=0 sticker/>
+
+
+<include='../root01test.txt' />

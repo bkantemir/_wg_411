@@ -1,0 +1,10 @@
+
+
+<element='bogie/bogie01.txt' name=bogie1 class="OnRails" wheelBase=20 opaque pz=0 scale=1 />//38
+
+<include='body01test.txt' scale=1 />
+
+<element='bogie/bogie2body.txt' attachTo=body opaque pz=0 scale=1 />//38
+
+<element='/dt/md/rr/coupler/couplerbox01.txt' class=coupler full attachTo=body pz=15 opaque/>//65
+<element='/dt/md/rr/coupler/couplerbox01.txt' class=coupler full attachTo=body pz=-15 ay=180 opaque/>

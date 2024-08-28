@@ -1,0 +1,190 @@
+
+<element name=bodyback attachTo=body hit pz=-65 py=8>
+			
+	<group>//right lower steps
+		<mt_use=gunmetal 4wire lineWidth=0.4 />//uColor=#ff0000>
+		<line >
+			<p pxyz='0,0,-1.5'/>
+			<p dy=-5 r=0.3/>
+			<p dz=3 r=0.3/>
+			<p py=0 />
+		</line>
+		<short p0='0,-2.5,-1.5' dz=3/>
+	</group align=back pxyz='8,0,2'>//right lower steps
+	<clone=reflectX/>
+	
+	<group> //black bumper
+		<box='18,2,2'/>
+		<mt_use=gunmetal/>
+		<a='left,right,back'/>
+		<a=back width=7 pz=-0.1 mt_use=outline-base xywh_GL='0.5,0,0,1' /> //bottom outline
+	</group align='bottom back'> //black bumper
+	
+	<group>//right back lower steps
+		<mt_use=gunmetal 4wire lineWidth=0.4 />//uColor=#ff0000>
+		<line >
+			<p pxyz='0,0,0'/>
+			<p dy=-7.5 r=0.3/>
+			<p dx=2 r=0.3/>
+			<p py=0 />
+		</line>
+		<short p0='0,0,0' dx=2/>
+		<short p0='0,-2.5,0' dx=2/>
+		<short p0='0,-5,0' dx=2/>
+		//<short p0='0,-2.5,0' dx=2/>
+	</group align=right pxyz='8.5,6,-1.2'>//right back lower steps
+	<clone=reflectX/>
+	
+	<group> //mid wide step
+		<box='11,0.3,1.5'/>
+		<mt_use=gunmetal/>//back-wall/>
+		<a='top,left l,right l,back l' align=front/>
+		<do sizeD='-1,0,0' applyTo=back/>
+		<mt_use=gunmetal 4wire lineWidth=0.4/>
+		<short p0='5,-0.2,-1.4' pz=0 py=-3/>
+		<short p0='1.7,-0.2,-1.4' pz=0 py=-3/>
+		<short p0='-1.7,-0.2,-1.4' pz=0 py=-3/>
+		<short p0='-5,-0.2,-1.4' pz=0 py=-3/>
+	</group py=5.5 > //mid wide step
+	
+	<group>//right handles
+		<mt_use=handle/>
+		<group>//right-right handle
+			<line>
+				<p pxyz='8.8,13,0'/>
+				<p dz=-1 r=0.2/>
+				<p dy=-11 r=0.2/>
+				<p pz=0/>
+			</line>
+		</group >//right-right handle
+		<clone px=-3/>
+		<group>//upper handle
+			<line>
+				<p pxyz='8,10.5,0'/>
+				<p dz=-1 r=0.2/>
+				<p dx=-5 r=0.2/>
+				<p pz=0/>
+			</line>
+		</group py=3>//upper handle
+	</group>//right handles
+	<clone=reflectX/>
+	
+	<group>//door
+		<mt_use=black lineWidth=0.2 uAlphaFactor=0.5 noShadow/>
+		<ln_square whl='4,10,0' r=0.5/>
+		
+		<group>//window
+			<mt_use=handle lineWidth=0.2 noShadow/> // back-wall 4wire
+			<ln_square whl='2.2,3.2,0' r=0.3 pz=-0.1/>
+			<box='2,3,0.1'/>
+			<a=back mt_use=black noShadow/>
+			<a=back mt_use=glass-plain uAlphaFactor=0.5 noShadow/>
+		</group py=2.5>//window
+		
+		//door handle
+		<mt_use=handle lineWidth=0.3/>
+		<line>
+			<p pxyz='-1.5,0,0'/>
+			<p dz=-0.6 r=0.3/>
+			<p dx=1.5/>
+		</line>
+		
+	</group py=11 pz=-0.1>//door
+	
+	<box='18,14,37' />
+
+	<group> //side walls
+		<mt_use=body/>
+		<a='left,right' mark='body-back' />					
+		<a=back mt_use=back-wall height=15 py=0.5 mt_use=chrome mark='back-wall'/>
+	</group align='bottom back' py=2>
+	
+						<group>//right grills
+						<group>//front big grill
+							<vs=box-tank whl='0,6,10' ext=-1 extX=0 >
+								<a=right mt_use=black noShadow/>
+								<a=right mt_use=body+nm16x16diag xywh2nm_GL='0,0,5.9,3.5'/>
+								<mt_use=body 4wire lineWidth=0.3 noShadow />//uColor=#ff0000/>
+									<ln_square whl='10.4,6.4,0' r=1 ay=90 px=0.2/>
+									<short p0='0,0,-5' dz=10 />
+									<short p0='0,-3,-1.65' dy=6 />
+									<short p0='0,-3, 1.65' dy=6 />
+									<ln_square whl='12,8,0' r=0.1 ay=90 px=0.1 lineWidth=0.2/>
+								</mt_use>
+							</vs>
+							<group mark=guide>//rivets line
+								<mt_type=flat uColor=#ff0000 lineWidth=0.2 dontRender>
+									<ln_square whl='11,7,0.1' r=0.6 />
+								</mt_type>
+							</group ay=90>//rivets
+							<group>//rivets
+								<a=right box='0,0.6,0.6' mt_use=body+rivets2 xywh2nm='0,0,2,2' />
+								<clone2line=guide interval=2 />
+							</group>//rivets
+						</group py=11.5 pz=30.4>//front big grill
+						
+						<group>//front small grill
+							<box='0,5,3' >
+								<a=right mt_use=black noShadow/>
+								<a=right mt_use=body+nm1x4 xywh2nm_GL='0,0.5,0,10'/>
+								<ln_square whl='3.4,5.4,0' r=0.1 mt_use=body 4wire lineWidth=0.2 noShadow ay=90 px=0.2/>
+							</box>
+						</group py=12.5 pz=22>//front small grill
+					</group px=9.05>//right grills
+					<clone=reflectX/>
+	<group>
+		<mt_use=metal-wire lineWidth=0.3/>
+		<short p0='0.1,2,3' dy=14 noShadow/>
+		<group>//steps
+			<line>
+				<group>
+					<p pxyz='-0.2,0,-1.5'/>
+					<p px=1 r=0.3/>
+					<p dz=3 r=0.3/>
+					<p px=-0.2 r=0.1/>
+				</group>
+				<clone py=-3/>
+			</line>
+		</group pxyz='0,7,3'>//steps
+		<group>
+			<ln_square whl='2,2,0' r=0.2 lineWidth=0.2 noShadow/>
+		</group ay=90 pxyz='0.1,11,1.5'>
+		
+	</group px=9>
+	<clone=reflectX/>
+	
+	<group>//right lamps
+		<mt_use=metal-wire lineWidth=0.2 noShadow/>
+		<group>
+			<line>
+				<ring whl='1.5,1.5,0' sectR=10 />
+			</line>
+		</group pxyz='1,18,-0.1'>
+		<group>
+			<line>
+				<ring whl='1.3,1.3,0' sectR=10 />
+			</line>
+		</group pxyz='7.2,9,-0.1'>
+	</group>
+	<clone=reflectX/>
+	
+	<group>//undercarriage
+		<mt_use=gunmetal />//uColor=#ff0000/>
+		<group>//rear box right
+			<box='2,4,6'/>
+			<a='front,back,left,right'/>
+			<mt_use=gunmetal 4wire lineWidth=0.3/>
+			<short p0='1.1,-2,1.5' dy=4/>
+			<short p0='1.1,-2,-1.5' dy=4/>
+		</group align='top back right' px=8 pz=3>//rear box right
+		<clone=reflectX/>
+	</group>//undercarriage
+
+</element>
+
+			
+<element='/dt/md/parts/light/dir02round_white.txt' class=DirLight attachTo=bodyback scale=1.3 ay=180 pxyz='-1,18,-0.1'/>
+<element='/dt/md/parts/light/dir02round_white.txt' class=DirLight attachTo=bodyback scale=1.3 ay=180 pxyz='1,18,-0.1'/>
+
+<element='/dt/md/parts/light/dir02round_red.txt' class=DirLight attachTo=bodyback scale=1.1 ay=180 pxyz='-7.2,9,-0.1' reverse/>
+<element='/dt/md/parts/light/dir02round_red.txt' class=DirLight attachTo=bodyback scale=1.1 ay=180 pxyz='7.2,9,-0.1' reverse/>

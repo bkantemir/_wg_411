@@ -1,0 +1,147 @@
+<model="Siemens SC-44 Charger Amtrak" yearFrom=2016 />
+
+<include='/dt/mt/materials.txt'/>
+
+<mt_save_as=body mt_use=silver/>
+
+<mt_save_as=roof mt_use=dark-silver/>
+<mt_save_as=top-lids mt_use=dark-silver/>
+
+<mt_save_as=cabin-body mt_use=teflon uColor=#0000ff />
+<mt_save_as=cabin-nose mt_use=cabin-body />
+
+<mt_save_as=cabin-roof mt_use=gloss uColor=#222222/>
+
+<mt_save_as=front-side-ribs mt_use=chrome/>
+<mt_save_as=body-nose mt_use=teflon uColor=#0000ff/>
+
+<mt_save_as=outline-top mt_use=chrome/>
+<mt_save_as=outline-base mt_use=teflon uTex0_src='outline-base.bmp'/>
+
+<mt_save_as=lighted-number mt_type=flat uTex1mask_src=number.bmp uTex1alphaChannelN=0 sticker/>
+
+<mt_save_as=back-wall mt_use=dark-silver />
+
+
+<include='../root00.txt' />
+
+
+<for_element=cabin>
+	//front logo
+	<mt_use=satin uColor=#ffffff uTex1mask_src='surfliner02.bmp' uTex1alphaChannelN=0 uAlphaFactor=0.8 uAmbient=0.5 sticker />
+	<a2mesh wh='10,1.2' xywh='0,20,256,23' all markedAs=nose onThe=front detachBy=0.05 py=4 px=0 />
+
+	<mt_use=satin uTex0_use=body01/>
+	<group>//US flag
+		<box='18.1,1.8,2.2'/>					
+		<a='left,right' xywh='1,22,21,13'/>
+	</group py=8 pz=9.1>//US flag
+	<mt_use=satin uTex1mask_use=body01 uTex1alphaChannelN=0 uColor=#ffffff uAlphaFactor=0.9 sticker/>
+	<group>//F
+		<box='18.1,1.4,1'/>					
+		<a='left,right' xywh='70,21,11,16'/>
+	</group py=5.8 pz=8.2>//F
+	//CDTX
+	<a2mesh wh='4,1.5' xywh='81,21,47,16' all markedAs=cabin-side onThe=right detachBy=0.05 py=6.5 px=-12.6/>
+	<a2mesh wh='4,1.5' xywh='81,21,47,16' all markedAs=cabin-side onThe=left detachBy=0.05 py=6.5 px=12.6/>
+	//number 2111
+	<mt_adjust uTex1mask_src='number.bmp' />
+	<a2mesh wh='6,2.5' xywh_GL='0,0,1,1' all markedAs=cabin-side onThe=right detachBy=0.05 py=4 px=-12.4/>
+	<a2mesh wh='6,2.5' xywh_GL='0,0,1,1' all markedAs=cabin-side onThe=left detachBy=0.05 py=4 px=12.4/>
+	
+</for_element>
+
+<for_element=body>
+	//side logo
+	<mt_use=satin uColor=#0000aa uTex1mask_src='/dt/md/rr/us/label/amtrak01.bmp' uTex1alphaChannelN=0 uAlphaFactor=0.8 uAmbient=0.5 sticker />
+	<a2mesh wh='10,5' xywh_GL='0,0,1,1' all markedAs=body-front-blank onThe=right detachBy=0.05 py=20.5 px=-9/>
+	<a2mesh wh='10,5' xywh_GL='0,0,1,1' all markedAs=body-front-blank onThe=left detachBy=0.05 py=20.5 px=9/>
+	<mt_adjust uTex1mask_src='surfliner02.bmp' />
+	<a2mesh wh='25,5' xywh='0,0,256,43' all markedAs=body-front-blank onThe=right detachBy=0.05 py=15.5 px=-9/>
+	<a2mesh wh='25,5' xywh='0,0,256,43' all markedAs=body-front-blank onThe=left detachBy=0.05 py=15.5 px=9/>
+	//front blue
+	<mt_use=satin uTex0_src='body02.bmp' uTex0_ckey=#00ff00 sticker />
+		<a2mesh wh='17,14' xywh='0,0,128,128' all markedAs=body-front-blank onThe=right       detachBy=0.05 py=17 px=-38/>
+		<a2mesh wh='17,14' xywh='0,0,128,128' all markedAs=body-front-blank onThe=left flip=h detachBy=0.05 py=17 px=38/>
+	//slit cover
+	<mt_use=cabin-body noShadow/>
+	<group>
+		<group>
+			//<box='1,14,0'/>
+			<box='1,14,0'/>
+			<a=front />//uColor=#ff0000/>
+			<do='set normals' xyz='1,0,0'/>
+		</group px=8.55>
+		<clone=reflectX/>
+	</group py=17 pz=46>
+	//Siemens
+	<mt_use=satin uTex1mask_use=body01 uTex1alphaChannelN=0 uColor=#55ffff uAlphaFactor=0.9 sticker/>
+	<group>
+		<box='18.2,1,7'/>					
+		<a='left,right' xywh='22,2,106,18'/>
+	</group py=10.8 pz=42.5>
+
+</for_element>
+
+<for_element=bodyback>
+	<mt_use=satin uTex0_src='body02.bmp' uTex0_ckey=#00ff00 noShadow />
+	//CA flag
+	<group>
+		<box='18.2,5,7'/>					
+		<a='left,right' xywh='161,60,95,68'/>
+	</group py=13.5 pz=7>
+	<mt_adjust sticker/>
+	//rear blue
+	<group>
+		<box='18.1,15,37'/>					
+		<a='right' xywh='0,128,256,128'/>
+		<a='left' flip=h xywh='0,128,256,128'/>
+	</group py=9.5 pz=18.5>
+	<mt_adjust uAlphaFactor=0.8/>
+	//CT logo
+	<group>
+		<box='18.1,3.5,5'/>					
+		<a='left,right' xywh='129,28,53,32'/>
+	</group py=5 pz=15>
+	//caltrans
+	<group>
+		<box='18.1,2.5,10'/>					
+		<a='left,right' xywh='128,0,128,28'/>
+	</group py=5.2 pz=8>
+	//back hood
+	<element attachTo=bodyback hit>
+		<group>
+			<mt_use=cabin-body/>
+			<vs=box-tank whl='12,1,16' extU=1 extX=3.1 sectR=3 />
+			<a='top all,left,right' />
+			<a='back' h=9 py=-4/>
+			<group>
+				<mt_use=satin uColor=#0000ff 4wire lineWidth=0.3/>
+				<short p0='2,0,0' dz=8/>
+				<short p0='6,0,0' dz=5/>
+			</group py=1.6 pz=-8>
+			<clone=reflectX/>
+			<do py=4 applyTo=back fromY=0/>
+			<do='calc merge normals'/>
+		</group align='back' py=17.5 pz=-0.05>
+	</element>
+	
+	<group>
+		<mt_use=satin uColor=#0000ff 4wire lineWidth=0.3/>
+		<line>
+			<p pxyz='-9.1,0,0'/>
+			<p dz=-16 r=0.1/>
+			<p dx=18.2 r=0.1/>
+			<p dz=16 />
+		</line>
+	</group align=back py=17.2 pz=-0.1>
+	//backwall
+	<mt_use=satin uColor=#ffffff uTex1mask_src='/dt/md/rr/us/label/amtrak01.bmp' uTex1alphaChannelN=0 sticker uAlphaFactor=0.8 uAmbient=0.5/>
+	<box='6,4,0.2'/>
+	<a=back px=5.5 py=19 />
+	<mt_adjust uTex1mask_src='number.bmp' />
+	<box='5,2.5,0.2'/>
+	<a=back px=-5.5 py=19 />
+	
+</for_element>
+

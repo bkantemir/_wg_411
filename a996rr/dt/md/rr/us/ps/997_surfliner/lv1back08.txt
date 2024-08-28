@@ -1,0 +1,26 @@
+
+		<group>//underneath back skirt (short)
+			<box='18,5,8'/>
+			<a='left,right' mt_use=body uTex2nm_use=nm1x4rib xywh2nm_GL='0.5,0,0,5'/>
+			<group>//back lip
+				<box='18,5,0.1' sectY=5/>
+				<a='left,right' mt_use=body />//uColor=#ff0000/>
+				<do pz=-2 applyTo='top sin' toZ=0/>
+			</group align=front pz=-4>//back lip
+			<do sizeD='-2,0,0' applyTo=bottom/>
+			<do='calc normals'/>
+		</group align='top' >//underneath back skirt
+
+		<mt_use=body/>
+		<group mark=body>//short back wall
+			<box='0,9,8'/>
+			<a=right h=1 align='bottom' py=8 uTex2nm_use=rivets4  xywh2nm_GL='0,0,6,0.5'/>
+			<a=right h=3 align='bottom' py=5 uTex2nm_use=nm1x4rib xywh2nm_GL='0,0,1,3'/>
+			<a=right h=1 align='bottom' />
+			<group>//windows row
+				<vs_adjust h=4/>
+				<a=right l=8 align=front pz=0 />//uColor=#00ff00/>
+			</group py=3 pz=4>//windows row
+		</group px=9>//short back wall
+		<clone=reflectX asis/>
+		

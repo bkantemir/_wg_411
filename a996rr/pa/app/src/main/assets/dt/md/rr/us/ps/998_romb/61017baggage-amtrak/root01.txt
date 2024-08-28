@@ -1,0 +1,213 @@
+<model="84' Amfleet baggage car" yearFrom=1973 />
+
+<include='/dt/mt/materials.txt'/>
+
+<mt_save_as=bogie mt_use=gunmetal/>//dark-silver/>
+<mt_save_as=bogie-lid mt_use=bogie>//rust/>
+<mt_save_as=bogie-spring mt_use=metal uColor=#cc0000/>
+<mt_save_as=wheel_main mt_use=rust />
+
+
+<mt_save_as=body mt_use=silver/>//metal uColor=#eee0ee/>//
+<mt_save_as=body-ribs uTex2nm_use=nm1x4rib mt_use=metal uColor=#999099/>
+
+<mt_save_as=handle mt_use=body 4wire lineWidth=0.3/>
+<mt_save_as=windows mt_use=glass-tintBrown uAlphaFactor=0.3 noStickers />
+<mt_save_as=inside-walls mt_use=matte uColor=#444466 noStickers uTex2nm=-1/>// forElement=inside/>
+<mt_save_as=prints mt_use=metal uAmbient=0.2/>
+
+<element='/dt/md/rr/bogie/97us_phase1/bogie00.txt' name=bogie1 class="OnRails" wheelBase=16 opaque pz=60 scale=1/>
+<element='/dt/md/rr/bogie/97us_phase1/bogie00.txt' name=bogie2 class="OnRails" wheelBase=16 opaque pz=-60 ay=180 />
+<element='/dt/md/rr/coupler/nobox.txt' class=coupler full attachTo=bogie1 pz=7 lever=14 />
+<element='/dt/md/rr/coupler/nobox.txt' class=coupler full attachTo=bogie2 pz=7 lever=14 />
+
+<element name=body attachTo=bogie2 headTo=bogie1 place2middle py=7 opaque hit>
+	<element name=glass attachTo=body transparent />
+
+	<element='/dt/md/rr/bogie/97us_phase1/bogie2body.txt' attachTo=body opaque pz=60 />
+	<element='/dt/md/rr/bogie/97us_phase1/bogie2body.txt' attachTo=body opaque pz=-60 ay=180 />
+
+	<group>//body
+		<mt_use=body/>
+		<include='body-slice1.txt' scale='1,1,35' align=front pz=80/>
+		<include='body-slice1.txt' scale='1,1,75' align=front pz=33/>
+		<include='body-slice1.txt' scale='1,1,26' align=back pz=-80/>
+
+		<group>//front doors group
+			<vs=box-tank whl='18,0,12' extX=1 extU=12 extD=5 sectR=1/>
+			<a='bottom' extX=0 side=in mt_use=inside-walls/>
+			<a='front,back' extX=0 side=in mt_use=black/>			
+			<a='front noMcol,back noMcol' side=in mt_use=body/>
+			<do align=bottom/>
+			<group>//right wall
+				<group>//visor
+					<a=right box='18,3,12' mark='right wall'/>
+					<do px=0.25 applyTo=bottom/>
+					<do='calc normals'/>
+				</group align=top py=17>//visor
+				<group>//door itself
+					
+					<box='18,12,12'/>
+					<a=right h=2 align=top py=14 side=',inside-walls'/>
+					<a=right h=7 align=bottom side=',inside-walls'/>
+					<group> //wnd row
+						<vs_adjust h=5/>
+						<a=right mt_use=windows h=6 l=12 px=-0.1/>
+						<a=right l=2 side=',inside-walls'/>
+						<a=right l=2 pz=5 side=',inside-walls'/>
+						<a=right l=2 pz=-5 side=',inside-walls'/>
+						<group>//black frame side=',inside-walls'
+							<mt_use=matte-wire uColor=#111111 lineWidth=0.5 noShadow/>
+							<ln_square wh='2.6,5.2' r=0.3 />
+						</group ay=90 px=9.2 pz=2.5>//black frame
+						<clone=reflectZ/>
+					</group py=9.5> //wnd row
+					//doors slit
+					<mt_use=black uAlphaFactor=0.5 lineWidth=0.3 noShadow />//uColor=#ff0000/>
+					<short p0='9.1,1,0' dy=12/>
+					<group>//doors frame
+						<ln_square wh='10,12' r=0 />
+					</group ay=90 px=9.1 py=7>//doors frame
+					<group>//handle
+						<mt_use=body 4wire lineWidth=0.4 noShadow/>
+						<short p0='0,0,0' dy=2/>
+						<short p0='0,4,0' dy=2/>
+					</group pxyz='9.1,1,0.6'>//handle
+					<group>//side handle
+						<mt_use=body 4wire lineWidth=0.3 />
+						<line>
+							<p pxyz=0,0,0'/>
+							<p dz=-1.5 r=0.5/>
+							<p dy=5 r=0.5/>
+							<p pz=0/>
+						</line>
+					</group pxyz='10,2,6.5'>//side handle
+					<clone=reflectZ/>
+					//lower step
+					<mt_use=body 4wire lineWidth=0.4 noShadow/>
+					<short p0='9.1,0,-6' dz=12/>
+					//arch
+					<mt_use=body 4wire lineWidth=0.3 noShadow />//uColor=#ff0000/>
+					<line>
+						<p pxyz='-6.1,0,0'/>
+						<p dy=14.2 r=0.5/>
+						<p dx=12.2 r=0.5/>
+						<p py=0/>
+					</line>
+					<line2mesh all markedAs="right wall" onThe="right" detachBy=0.1 />
+				</group>//door
+			</group>//right wall
+			<clone=reflectX/>
+			<group>//door labels
+				<mt_use=prints uTex0_src='door-l.bmp' sticker/>
+				<a=right box='0,3,1.6' pxyz='9.1,4.5,-1.1'/>
+				<mt_use=prints uTex0_src='door-r.bmp' uTex0_ckey=#00ff00 sticker/>
+				<group>//R
+					<a=right box='0,3,2.5'/>
+				</group pxyz='9.1,3,3.3>//R
+				<clone=reflectZ/>
+			</group>//labels
+			<clone ay=180/>
+
+		</group pz=39>//front doors group
+		<clone pz=-87/>
+		
+		<group>	//top rib
+					<mt_use=body 4wire lineWidth=0.25 noShadow />//uColor=#ff0000/>
+					<line>
+						<p pxyz='-80,16.5,0'/>
+						<p dx=160/>
+					</line>
+					<line2mesh all markedAs="right wall" onThe="right" detachBy=0.1 />
+		</group>	//top rib
+		<clone=reflectX/>
+		
+		<group>//roof
+			<vs=box-tank whl='18,1,160' ext=-1 extZ=0 extD=0 sectR=2 sectX=6/>
+			<a='front,back' mt_use=body/>
+			<a='top all' mt_use=body-ribs flip2nm=90 xywh2nm_GL='0,0,1,16' />
+			<do  align=bottom/>
+			<do py=2 applyTo='midX 1-pow2' fromY=0.1/>
+			<do='calc merge normals'/>
+			<group>//vent
+				<mt_use=body/>
+				<vs=cylinder whl='5,5,1' sectR=10 extZ=0.5/>
+				<a='front'/>
+				<do='calc merge normals'/>
+				<a='wrap'/>
+				<vs=cylinder whl='4,4,1' sectR=6/>
+				<a='wrap' mt_use=black pz=-1/>
+				<do headZto=y/>
+			</group align=bottom py=3 pz=60>//vent
+			<clone pz=-40/>
+			<clone pz=-40/>
+			<clone pz=-40/>
+		</group py=17>//roof
+
+		<group>//underneath
+			<mt_use=body/>
+			<box='18,1,160'/>
+			<a='left,right' side=',black' align=top/>
+			<group>//front thick
+				<a='left,right' l=13 side=',black' />
+				<do pz=1 applyTo='back bottom'/>
+				<do  align=front/>
+				<group> //step
+					<mt_use=body 4wire lineWidth=0.4/>
+					<line>
+						<p pxyz='0,0,0' />
+						<p dy=-2 r=0.5 />
+						<p dz=-3 r=0.5 />
+						<p dy=2 />
+					</line>
+				</group pxyz='9,-0.5,-0.2'>
+				<clone=reflectX/>
+			</group py=-1.5 pz=80>//front thick
+			<clone=reflectZ/>
+			
+			<group>//big tank
+				<mt_use=gunmetal />//uColor=#ff0000/>
+				<vs=box-tank whl='16,4,90' extD=-1 extX=-1 sectR=1/>
+				<a='front,back,left h,right h'/>
+			</group align=top py=-1>//big tank
+			<group>//front steps
+				<group>//right steps
+					<a=right mt_use=body box='0,0.5,3' align='front bottom' />
+					<mt_use=gunmetal 4wire lineWidth=0.4/>
+					<line>
+						<p pxyz='0,0,0'/>
+						<p dy=-4 r=0.5/>
+						<p dz=-3 r=0.5/>
+						<p py=0/>
+					</line>
+					<short p0='0,-2,0' dz=-3/>
+				</group pxyz='9,-1.5,45'>//right steps
+				<clone=reflectZ/>
+			</group>//front steps
+			<clone=reflectX/>
+		</group>//underneath
+
+		<group>//wall labels - stripes
+			<mt_use=prints uTex0_src='stripe1.bmp' uTex0_ckey=#00ff00 sticker/>
+			<a2mesh wh='160,1' xywh='0.5,0,0,4' all markedAs='right wall' onThe=right py=1 detachBy=0.05 />
+			<mt_use=prints uTex0_src='stripe3.bmp' uTex0_ckey=#00ff00 sticker/>
+			<a2mesh wh='160,5' xywh='0.5,0,0,16' all markedAs='right wall' onThe=right py=7.5 detachBy=0.05 />
+		</group >//stripes
+		<clone=reflectX/>
+		<group>//wall labels - text
+			<mt_use=prints uTex1alphaChannelN=0 sticker uTex1mask_src='number.bmp' uColor=#000000 />
+			<a2mesh wh='6,1.8' xywh='8,0,47,16' all markedAs='right wall' onThe=right px=76 py=7.5 detachBy=0.1 />
+			<a2mesh wh='6,1.8' xywh='8,0,47,16' all markedAs='right wall' onThe=right px=-76 py=7.5 detachBy=0.1 />
+			<mt_use=prints uTex1alphaChannelN=0 sticker uTex1mask_src='baggage.bmp' uColor=#000000 />
+			<a2mesh wh='7,1.5' xywh='0,0,64,16' all markedAs='right wall' onThe=right px=69 py=7.5 detachBy=0.1 />
+			<a2mesh wh='7,1.5' xywh='0,0,64,16' all markedAs='right wall' onThe=right px=-69 py=7.5 detachBy=0.1 />
+			<mt_use=prints uTex1alphaChannelN=0 sticker uTex1mask_src='/dt/md/rr/us/label/amtrak04.bmp' uColor=#0000bb />
+			<a2mesh wh='16,1.9' xywh='0,0,256,40' all markedAs='right wall' onThe=right py=7.5 detachBy=0.1 />
+		</group>//labels
+		<clone ay=180/>
+
+	</group>//body
+</element>
+
+<element='../frontwall.txt' attachTo=body pz=80 hit/>
+<element='../frontwall.txt' attachTo=body pz=-80 ay=180 hit/>

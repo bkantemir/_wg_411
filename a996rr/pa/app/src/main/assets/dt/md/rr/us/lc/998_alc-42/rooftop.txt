@@ -1,0 +1,186 @@
+
+<group> //entire rooftop
+	<mt_use=roof/>
+	<box='12,0,111'/>
+	//<a='top' />//uColor=#00ff00/>
+	
+	<group>//first plain section
+		<a=top l=8/>
+		<mt_use=roof 4wire lineWidth=0.3 >//uColor=#ff0000>
+			<short p0='-2,0.1,-2' dz=5.5/>
+			<short p0='2,0.1,-2' dz=4.5/>
+			
+			<short p0='0,0.1,-1' dz=1/>
+			<short p0='-4,0.1,-1' dz=1/>
+			<short p0='4,0.1,-1' dz=1/>
+			
+			<short p0='-1,0.1,-3.5' dz=1/>
+			<short p0='1,0.1,-3.5' dz=1/>
+		</mt_use>
+	</group align=front pz=55.5>//first plain section
+	
+	<group>//horns section
+		<box='12,1,8'>
+			<a='front,back,left,right,bottom' side=in align=top/>
+			<do pz=-1.5 applyTo=bottom fromZ=0/>
+			<do='calc normals'/>
+		</box>
+		
+		<group>//horns unit
+			<mt_use=chrome>
+				<a='left,right,top,front,back' box='9,1.5,0.6' align='bottom front' py=-1/>
+				<group>//horns group
+					<vs=cylinder whl='0.8,0.8,6' sectR=6 sectZ=3>
+						<group>//long horn
+							<a=wrap l=5 side=','/>
+							<do scale='2,2,1' applyTo='front pow2' />
+						</group align=back>//long horn
+						<group>//mid horn
+							<a=wrap l=4 side=','/>
+							<do scale='2,2,1' applyTo='front pow2' />
+						</group align=back px=2>//mid horn
+						<clone=reflectX/>
+						<group>//short horn
+							<a=wrap l=3 side=','/>
+							<do scale='2,2,1' applyTo='front pow2' />
+						</group align=back px=4>//short horn
+						<clone=reflectX/>
+					</vs>
+				</group py=0>//horns group
+			</mt_use>
+			<do scale=0.7 py=-0.2/>
+		</group pz=-2>//horns unit
+		
+	</group align=front pz=47.5>//horns section
+	
+	<group>//rear flat section
+		<a=top l=95/>
+	</group align=front pz=39.5>//rear flat section
+	
+	<group>//small 2 lids group
+		<group>//right lid
+			<mt_use=chrome>
+				<vs=box-tank whl='3,0.5,6' ext=-0.4 extD=0 extZ=0 sectR=2/>
+				<a='left v,right v,front,back,top'/>
+				<do='calc merge normals'/>
+			</mt_use>
+			//<do sizeD='1,0,1' applyTo=bottom/>
+		</group align=bottom px=2 >
+		<clone=reflectX/>
+		<mt_use=roof 4wire lineWidth=0.3 >//uColor=#ff0000>
+			<short p0='-4,0.1,4.5' dx=8/>
+			<short p0='-5,0.1,-3' dz=6/>
+			<short p0='5,0.1,-3' dz=6/>
+		</mt_use>
+	</group align=front pz=38>//small 2 lids group
+	
+	<group>//1 lid group
+		<group>//lid
+			<mt_use=chrome>
+				<box='5,0.5,10'/>
+				<a='left,right,front,back,top'/>
+			</mt_use>
+			<do sizeD='-0.6,0,-0.6' applyTo=top/>
+			<do='calc normals'/>
+			<mt_use=metal-wire lineWidth=0.3 >//uColor=#ff0000>
+				<ln_square whl='3,8,0' r=0.1 ax=90 py=0.4/>
+			</mt_use>
+			<mt_use=black/>
+			<a=top box='1.8,0.6,3' pz=1.5/>
+			<a=top box='1.5,0.6,1.5' pz=-2.5/>
+		</group align=bottom >		
+		<mt_use=roof 4wire lineWidth=0.3 >//uColor=#ff0000>
+			<short p0='-5,0.1,2' dx=3/>
+			<short p0='5,0.1,2' dx=-3/>
+			
+			<short p0='-5,0.1,-4' dz=8/>
+			<short p0='5,0.1,-4' dz=8/>
+		</mt_use>		
+	</group align=front pz=29>//1 lid group
+	
+	<group>//big 2 lids group
+		<group>//right lid
+			<mt_use=chrome>
+				<vs=box-tank whl='3,0.5,15' ext=-0.4 extD=0 extZ=0 sectR=2/>
+				<a='left v,right v,front,back,top'/>
+				<do='calc merge normals'/>
+			</mt_use>
+		</group align=bottom px=2 >
+		<clone=reflectX/>
+		<mt_use=roof 4wire lineWidth=0.3 >//uColor=#ff0000>
+			<short p0='-4,0.1,-9' dx=8/>
+			<short p0='-5,0.1,-7' dz=6/>
+			<short p0='5,0.1,-7' dz=6/>
+			<short p0='-5,0.1,7' dz=-6/>
+			<short p0='5,0.1,7' dz=-6/>
+		</mt_use>
+	</group align=front pz=17>//big 2 lids group
+	
+	<group>//1st rear grill
+		<group>//grill
+			<mt_use=metal-wire lineWidth=0.2>
+				<ln_square whl='4.4,6.4,0' r=0.1 pz=0.1/>
+				<short p0='-2,0,0' dx=4/>
+			</mt_use>
+			<box='4,6,0'/>
+			<a=front mt_use=black/>
+			<a=front mt_use=gunmetal+nm4x1 xywh2nm_GL='0,0.5,5,0' uAlphaFactor=0.7/>
+		</group ax=-90 pxyz='3,0.1,0'>//grill
+		<mt_use=roof 4wire lineWidth=0.3 >//uColor=#ff0000>
+			<short p0='-3,0.1,-1.5' dz=3/>
+		</mt_use>
+	</group align=front pz=-25>//1st rear grill
+	<clone=reflectX pz=-12/>
+	
+	<mt_use=roof 4wire lineWidth=0.3 >//uColor=#ff0000>
+		<group>//3 lines
+			<short p0='-3,0.1,0' dz=2/>
+			<short p0='0,0.1,0' dz=2/>
+			<short p0='3,0.1,0' dz=2/>
+		</group px=1 pz=-35.5>//3 lines
+		<group>//last lines
+			<group>//right lines>
+				<short p0='6,0.1,0' dz=1/>
+				<short p0='2,0.1,0' dz=4/>
+			</group>//right lines>
+			<clone=reflectX />
+		</group pz=-55.5>//last lines
+	</mt_use>
+	
+	<group>//fans group
+		<group>
+			<mt_use=chrome>
+				<box='10,0.5,22'/>
+				<a='left,right,front,back'/>
+				<a=top l=1 pz=1/>
+				<a=top l=2 pz=-10/>
+				<a=top l=20 pz=1 py=-0.4 />//mt_use=black uColor=#ff0000/>
+				<do sizeD='-0.6,0,-0.6' applyTo=top/>
+				<do='calc normals'/>
+			</mt_use>
+		</group align=bottom >
+		
+		<group>//fan
+			<mt_use=metal-wire lineWidth=0.3 noShadow/>
+			<ln_square whl='9,9,0' r=0.1/>
+			<short p0='-4,-4.9,0' dx=1/>
+			<short p0='3,-4.9,0' dx=1/>
+			<short p0='-0.5,-4.9,0' dx=1/>
+			<short p0='-0.5,4.9,0' dx=1/>
+			<vs=cylinder whl='8.5,8.5,0' sectR=16>
+				<a=front mt_use=black pz=-0.4 noShadow/>
+				<texture_as=tx1 src='fan-lid.bmp' ckey=#00ff00/>
+				<a=front pz=-0.2 mt_use=gunmetal nm=tx1 xywh2nm_GL='0,0,1,1' noShadow/>
+			</vs>
+			<a=front box='9,9,0' mt_use=gunmetal+nm16x16straight xywh2nm_GL='0,0,6,6'/>
+			//<texture_as=tx1 src='/dt/md/parts/lids/center02_8.bmp' ckey=#00ff00/>
+			//<a=front box='2,2,0' pz=-0.2 mt_use=gunmetal nm=tx1 xywh2nm_GL='0,0,1,1'/>
+		</group ax=-90 py=0.6 pz=6>
+		<clone=reflectZ pz=2/>
+	</group align=front pz=-1>//fans group
+	
+
+</group py=1.5> //entire rooftop
+
+<element='fan01.txt' class=Fan scale=7 attachTo=body ax=-90 py=27.3 pz=-15.5/>
+<element='fan01.txt' class=Fan scale=7 attachTo=body ax=-90 py=27.3 pz=-25.5/>

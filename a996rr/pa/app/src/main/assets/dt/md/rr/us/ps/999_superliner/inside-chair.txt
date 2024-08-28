@@ -1,0 +1,19 @@
+
+<mt_use=inside/>
+		<group>//single chair
+			<group>//chair bottom
+				<box='3,2,3'/>
+				<a='top,back,front,left,right' />//uColor=#0000ff/>
+			</group align='bottom back' py=1>//sit
+			<group>// back
+				<box='3,5,1'/>
+				<a='top,back,front,left,right' />
+				<do pz=-1.5 applyTo='top'/>
+				<do='calc normals'/>
+			</group align='bottom front' py=3 pz=0>//back
+			<group>//right handle
+				<box='1,2,3'/>
+				<a='top,back,front,left,right' />
+			</group pxyz='2,3,1'>//right handle
+			<clone=reflectX/>
+		</group py=0>//single chair

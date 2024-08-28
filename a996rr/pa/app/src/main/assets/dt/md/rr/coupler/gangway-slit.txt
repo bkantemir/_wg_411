@@ -1,0 +1,7 @@
+
+<mt_use=metal-wire lineWidth=0.4 noShadow />//uColor=#111111 />
+<group>
+	<ln_square wh='8.3,15.3' r=0.8/>
+</group py=7.5 pz=0.4>
+<clone pz=-0.8/>
+

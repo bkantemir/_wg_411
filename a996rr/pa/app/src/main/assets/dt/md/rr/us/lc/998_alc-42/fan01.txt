@@ -1,0 +1,17 @@
+
+
+<mt_use=gunmetal noShadow/>
+<group>//entire fan
+	<group>//1 blade
+		<box='1,5,0'/>
+		<a=front/>
+		<do ay=5/>
+	</group align=bottom py=1>//1 blade
+	<clone az=60/>
+	<clone az=60/>
+	<clone az=60/>
+	<clone az=60/>
+	<clone az=60/>
+	<do='calc normals'/>
+	<do scaleTo='1,1,0'/>
+</group>//entire fan

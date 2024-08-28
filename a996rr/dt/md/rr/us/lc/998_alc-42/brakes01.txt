@@ -1,0 +1,17 @@
+<include='/dt/mt/materials.txt'/>
+
+<group>//right
+	<mt_use=gunmetal 4wire lineWidth=1 />
+	//<mt_type=flat uColor=#ff0000 lineWidth=1 />
+	<line>
+		<p pxyz='0,0,0'/>
+		<p dy=-5 r=1/>
+		<p dx=-2/>
+	</line>
+	<group>
+		<mt_use=gunmetal />
+		//<mt_type=flat uColor=#ffff00 />
+		<a=right box='0,1.3,2.5'/>
+	</group pxyz='-2,-5,0'>
+</group px=6.2 py=6.5>
+<clone=reflectX/>

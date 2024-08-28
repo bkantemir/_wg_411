@@ -1,0 +1,7 @@
+	<mt_use=window-frame>
+				<group>//window frame
+					<ln_square wh='10,4' r=0.5 />
+					<short p0='0,2,0' dy=-4/>
+				</group ay=90 px=0.2 >//window frame
+	</mt_use>
+	

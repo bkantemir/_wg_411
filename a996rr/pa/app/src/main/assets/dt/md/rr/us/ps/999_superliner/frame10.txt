@@ -1,0 +1,7 @@
+	<mt_use=matte-wire uColor=#111111 lineWidth=0.5 noShadow>
+				<group>//window frame
+					<ln_square wh='10.4,3.4' r=0.3 />
+					<short p0='0,1.7,0' dy=-3.4/>
+				</group ay=90 px=0.2 >//window frame
+	</mt_use>
+	

@@ -1,0 +1,22 @@
+<include='/dt/mt/materials.txt'/>
+
+
+<group> //entire bogie connectors
+	<group>//right side
+		<group>//connector
+			<mt_use=metal-wire lineWidth=0.6 uColor=#cccccf/>
+			<short p0='0,0,0' dy=-5/>
+			<short p0='-3,0,0' dy=-4 px=0/>
+		</group px=-4>//connector
+
+		<group> //horizontal cylinder
+			<mt_use=gunmetal uColor=#222222/>
+				<vs=cylinder whl='1.0,1.0,5.5' sectR=6/>
+				<a='wrap,front,back' uSpecularIntencity=0.8/>//uColor=#ff0000/>
+		//</group align=back ay=108 ax=20 py=-2.5 px=-1> //horizontal cylinder
+		</group align=back ay=100 ax=0 px=-3.7 py=-5 pz=-1> //horizontal cylinder
+			
+	</group ay=90 px=8.9 >//right side
+	<clone=reflectX/>
+</group align=top py=0>//8> //entire connectors
+

@@ -1,0 +1,22 @@
+
+<mt_use=inside/>
+<group> //full row
+	<group> //right pair
+		<group>//right chair
+			<group>//coach bottom
+				<box='2.6,2,3'/>
+				<a='top,back,front,left,right' />//uColor=#0000ff/>
+			</group align='bottom back' py=1>//coach
+			<group>//coach back
+				<box='2.6,5,1'/>
+				<a='top,back,front,left,right' />//uColor=#0000ff/>
+				<do pz=-0.5 applyTo='top front'/>
+				<do pz=-1 applyTo='top'/>
+				<do='calc normals'/>
+			</group align='bottom front' py=3 pz=0>//coach
+		</group pz=0>//right chair
+		<clone px=-3.5 asis/>
+	</group align=right px=8 py=0> //row
+	<clone=reflectX asis/>
+</group > //full row
+<clone pz=-6.5 asis/>
